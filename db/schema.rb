@@ -10,24 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2021_08_30_134318) do
+=======
 ActiveRecord::Schema.define(version: 2021_08_30_134023) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
+  create_table "order_ingredients", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "ingredient_id"
+=======
   create_table "food_categories", force: :cascade do |t|
     t.string "cuisine_area"
     t.string "type"
+>>>>>>> master
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+<<<<<<< HEAD
+  create_table "order_meals", force: :cascade do |t|
+    t.integer "meal_id"
+    t.integer "order_id"
+=======
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
+>>>>>>> master
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+<<<<<<< HEAD
+  create_table "orders", force: :cascade do |t|
+    t.string "order_option_category"
+    t.integer "delivery_time"
+    t.integer "budget"
+    t.integer "number_of_meals"
+    t.string "address"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "status"
+    t.string "delivery_address"
+    t.integer "order_id"
+=======
   create_table "meals", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -39,6 +72,7 @@ ActiveRecord::Schema.define(version: 2021_08_30_134023) do
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "address"
+>>>>>>> master
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -51,6 +85,9 @@ ActiveRecord::Schema.define(version: 2021_08_30_134023) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
