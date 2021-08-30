@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_30_153149) do
+ActiveRecord::Schema.define(version: 2021_08_30_161020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 2021_08_30_153149) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["food_category_id"], name: "index_food_category_meals_on_food_category_id"
     t.index ["meal_id"], name: "index_food_category_meals_on_meal_id"
+  end
+
+  create_table "food_category_orders", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "food_category_id", null: false
+    t.boolean "desired"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_category_id"], name: "index_food_category_orders_on_food_category_id"
+    t.index ["order_id"], name: "index_food_category_orders_on_order_id"
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -83,6 +93,7 @@ ActiveRecord::Schema.define(version: 2021_08_30_153149) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -119,6 +130,8 @@ ActiveRecord::Schema.define(version: 2021_08_30_153149) do
 
   add_foreign_key "food_category_meals", "food_categories"
   add_foreign_key "food_category_meals", "meals"
+  add_foreign_key "food_category_orders", "food_categories"
+  add_foreign_key "food_category_orders", "orders"
   add_foreign_key "meals", "restaurants"
   add_foreign_key "meals_ingredients", "ingredients"
   add_foreign_key "meals_ingredients", "meals"
