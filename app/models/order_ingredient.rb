@@ -1,0 +1,2 @@
+class OrderIngredient < ApplicationRecord
+end
