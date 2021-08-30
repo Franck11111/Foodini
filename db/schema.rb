@@ -10,69 +10,94 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_08_30_134318) do
-=======
-ActiveRecord::Schema.define(version: 2021_08_30_134023) do
->>>>>>> master
+ActiveRecord::Schema.define(version: 2021_08_30_153149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-  create_table "order_ingredients", force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "ingredient_id"
-=======
   create_table "food_categories", force: :cascade do |t|
     t.string "cuisine_area"
     t.string "type"
->>>>>>> master
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-<<<<<<< HEAD
-  create_table "order_meals", force: :cascade do |t|
-    t.integer "meal_id"
-    t.integer "order_id"
-=======
+  create_table "food_category_meals", force: :cascade do |t|
+    t.bigint "food_category_id", null: false
+    t.bigint "meal_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_category_id"], name: "index_food_category_meals_on_food_category_id"
+    t.index ["meal_id"], name: "index_food_category_meals_on_meal_id"
+  end
+
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
->>>>>>> master
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-<<<<<<< HEAD
-  create_table "orders", force: :cascade do |t|
-    t.string "order_option_category"
-    t.integer "delivery_time"
-    t.integer "budget"
-    t.integer "number_of_meals"
-    t.string "address"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "payments", force: :cascade do |t|
-    t.string "status"
-    t.string "delivery_address"
-    t.integer "order_id"
-=======
   create_table "meals", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price"
+    t.bigint "restaurant_id", null: false
+    t.index ["restaurant_id"], name: "index_meals_on_restaurant_id"
+  end
+
+  create_table "meals_ingredients", force: :cascade do |t|
+    t.bigint "meal_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "ingredient_id", null: false
+    t.index ["ingredient_id"], name: "index_meals_ingredients_on_ingredient_id"
+    t.index ["meal_id"], name: "index_meals_ingredients_on_meal_id"
+  end
+
+  create_table "order_ingredients", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ingredient_id"], name: "index_order_ingredients_on_ingredient_id"
+    t.index ["order_id"], name: "index_order_ingredients_on_order_id"
+  end
+
+  create_table "order_meals", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "meal_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["meal_id"], name: "index_order_meals_on_meal_id"
+    t.index ["order_id"], name: "index_order_meals_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "option_category"
+    t.string "address"
+    t.integer "delivery_time"
+    t.integer "budget"
+    t.integer "number_of_meals"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "status"
+    t.string "delivery_address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "order_id", null: false
+    t.index ["order_id"], name: "index_payments_on_order_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "address"
->>>>>>> master
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -92,4 +117,15 @@ ActiveRecord::Schema.define(version: 2021_08_30_134023) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "food_category_meals", "food_categories"
+  add_foreign_key "food_category_meals", "meals"
+  add_foreign_key "meals", "restaurants"
+  add_foreign_key "meals_ingredients", "ingredients"
+  add_foreign_key "meals_ingredients", "meals"
+  add_foreign_key "order_ingredients", "ingredients"
+  add_foreign_key "order_ingredients", "orders"
+  add_foreign_key "order_meals", "meals"
+  add_foreign_key "order_meals", "orders"
+  add_foreign_key "orders", "users"
+  add_foreign_key "payments", "orders"
 end
