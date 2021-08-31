@@ -3,10 +3,11 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.simple_fields_for @order do |p| %>
-      <%=  p.association :user, required: true %>
+    <%= f.simple_fields_for :order, @order do |p| %>
+      <%= p.simple_fields_for :user, @user do |q| %>
+        <%= render "users_fields", f: q %>
+      <% end %>
     <% end %>
-    <%= f.input :delivery_address %>
   </div>
 
   <div class="form-actions">
