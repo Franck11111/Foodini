@@ -3,4 +3,5 @@ class Meal < ApplicationRecord
   has_many :meals_ingredients
   has_many :order_meals
   belongs_to :restaurant
+  monetize :price_cents
 end
