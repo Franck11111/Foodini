@@ -1,0 +1,20 @@
+<%= simple_form_for(@order) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.simple_fields_for @order_ingredient do |p| %>
+      <%=  p.association :ingredient, required: false %>
+    <% end %>
+    <%= f.simple_fields_for @food_category_order do |p| %>
+      <%=  p.association :food_category, required: false %>
+    <% end %>
+    <%= f.input :number_of_meals %>
+    <%= f.input :budget, required: true %>
+    <%= f.input :delivery_time, required: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
