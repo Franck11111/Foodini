@@ -4,7 +4,7 @@
 
   <div class="form-inputs">
     <%= f.simple_fields_for @order_ingredient do |p| %>
-      <%=  p.association :ingredient, required: false %>
+      <%= render 'order_ingredients_fields', f: p %>
     <% end %>
     <%= f.simple_fields_for @food_category_order do |p| %>
       <%=  p.association :food_category, required: false %>
@@ -12,6 +12,7 @@
     <%= f.input :number_of_meals %>
     <%= f.input :budget, required: true %>
     <%= f.input :delivery_time, required: true %>
+    <%= f.input :option_category, required: true %>
   </div>
 
   <div class="form-actions">

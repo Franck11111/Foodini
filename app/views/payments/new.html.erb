@@ -1,0 +1,15 @@
+<%= simple_form_for(@order, @payment) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.simple_fields_for @order do |p| %>
+      <%=  p.association :user, required: true %>
+    <% end %>
+    <%= f.input :delivery_address %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

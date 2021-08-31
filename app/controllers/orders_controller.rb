@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    # @order.order_meal = @order_meal
     @order.user = current_user
     if @order.save
       redirect_to @order, notice: 'Order was successfully created.'
@@ -23,6 +22,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:order_option_category, :delivery_time, :budget, :number_of_meals, :address, :user_id)
+    params.require(:order).permit(:order_option_category, :delivery_time, :budget, :number_of_meals, :address, :user_id, order_ingredients_attributes: [:order_id, :ingredient_id])
   end
 end
