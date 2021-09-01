@@ -64,3 +64,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rest-client'
 gem 'faker'
 gem 'open-uri'
+gem "cocoon"
+gem 'money-rails'
+gem 'stripe'
