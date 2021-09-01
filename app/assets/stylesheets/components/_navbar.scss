@@ -1,6 +1,20 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  background-color: transparent;
+  transition: 0.5s background-color ease;
+  height: 100px;
+}
+
+.navbar-brand {
+  padding: 1em;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar-brand h4 {
+  margin-left: 10px;
+  color: $red-food;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +22,23 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 60px;
+}
+
+.link-custom-color {
+  color: $red-food !important;
+  padding: 1em;
+}
+
+.navbar-lewagon-green {
+  background-color: $green-food;
+}
+
+#login_links {
+  display: inline-flex;
+}
+
+.nav-link {
+  color: $red-food !important;
+  font-weight: 500;
 }

@@ -2,11 +2,11 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: $green-food;
+  background: $red-food;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: $green-food;
+  background: $red-food-dark;
   color: white;
 }
