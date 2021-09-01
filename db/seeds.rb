@@ -46,7 +46,7 @@ food_type_base_url = URI.open('https://www.themealdb.com/api/json/v1/1/list.php?
 food_type_list = JSON.parse(food_type_base_url) # => an `Array` of `Hashes`.
 
 food_type_list['meals'].each do |category|
- p FoodCategory.create(type: category['strcategory'])
+FoodCategory.create(type: category['strcategory'])
 end
   # 4.2 Creating cuisine_area
 cuisine_area_base_url = URI.open('https://www.themealdb.com/api/json/v1/1/list.php?a=list').read
