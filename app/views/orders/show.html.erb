@@ -3,7 +3,9 @@
 <h2>Here is what you got!</h2>
 
 <h2>
-  <strong><%= @order.meal.name %></strong>
+  <strong><% @order.meals.each do |meal| %>
+    <%= meal.name %>
+  <% end %></strong>
 </h2>
 
 <div>
@@ -12,7 +14,9 @@
     <li><strong>Status:</strong> <%= @order.status %></li>
     <li><strong>Issued on:</strong> <%= @order.created_at.to_date %></li>
     <li><strong>Option chosen:</strong> <%= @order.option_category %></li>
-    <li><strong>Meal category:</strong> <%= @order.meal.food_category.cuisine_area %> [<%= @order.meal.food_category.type %>]</li>
+    <li><strong>Meal category:</strong> <% @order.food_categories.each do |food_category| %>
+      <%= food_category.cuisine_area %> [<%= food_category.type %>]</li>
+    <% end %>
     <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
     </li>
   </ul>
