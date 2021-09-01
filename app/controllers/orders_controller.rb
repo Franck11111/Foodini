@@ -10,11 +10,12 @@ class OrdersController < ApplicationController
   end
 
   def create
-    # @meal = Meal.find(params[:meal_id])
     @order = Order.new(order_params)
     @order.user = current_user
     @order.status = 'pending'
     # @order.amount = @meal.price
+
+    # order.meals <<
 
     # session = Stripe::Checkout::Session.create(
     #   payment_method_types: ['card'],
