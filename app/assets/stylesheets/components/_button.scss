@@ -7,6 +7,8 @@
 }
 
 .btn-flat:hover {
-  background: $red-food-dark;
+  // background: $red-food-dark;
   color: white;
+  background: #fd5c5c;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
 }

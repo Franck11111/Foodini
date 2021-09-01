@@ -6,12 +6,13 @@
   padding: 20px;
   border: 1px solid $green-food;
   transition: 0.5s ease;
-  background-color: white;
+  background-color: $yellow-food;
 }
 
 .card-big:hover {
   padding: 22px;
   box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.1);
+  color: $red-food;
 }
 
 .card-big img {

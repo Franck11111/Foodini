@@ -56,4 +56,11 @@
 
 .image_logo {
   width: 50px;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.image_logo:hover {
+  cursor: default;
+  transform: rotate(360deg);
+  transition: all 0.5s ease-in-out 0s;
 }

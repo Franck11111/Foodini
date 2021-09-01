@@ -1,7 +1,6 @@
-.navbar-lewagon {
+.navbar {
   justify-content: space-between;
-  background: white;
-  background-color: transparent;
+  background-color: white !important;
   transition: 0.5s background-color ease;
   height: 100px;
 }
@@ -17,21 +16,23 @@
   color: $red-food;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-brand h4:hover {
+color: $red-food-dark;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar .navbar-collapse {
+  flex-grow: 0;
+  display: flex;
+  background-color: transparent !important;
+}
+
+.navbar .navbar-brand img {
   width: 60px;
 }
 
 .link-custom-color {
-  color: $red-food !important;
+  color: $red-food;
   padding: 1em;
-}
-
-.navbar-lewagon-green {
-  background-color: $green-food;
 }
 
 #login_links {
@@ -41,4 +42,19 @@
 .nav-link {
   color: $red-food !important;
   font-weight: 500;
+}
+
+.nav-link:hover {
+  color: $red-food-dark !important;
+}
+
+.image_logo {
+  width: 50px;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.image_logo:hover {
+  cursor: default;
+  transform: rotate(360deg);
+  transition: all 0.5s ease-in-out 0s;
 }
