@@ -2,27 +2,19 @@
 
 <h2>Here is what you got!</h2>
 
-<p>
-  <strong>User:</strong>
-  <%= @order.user_id %>
-</p>
+<h2>
+  <strong><%= @order.meal.name %></strong>
+</h2>
 
-<p>
-  <strong>Status:</strong>
-  <%= @order.status %>
-</p>
-
-<p>
-  <strong>Option chosen:</strong>
-  <%= @order.option_category %>
-</p>
-
-<p>
-  <strong>Order details:</strong>
-  <p>Number of meals:</p>
-  <%= @order.number_of_meals %>
-  <p>Delivery address:</p>
-  <%= @order.address %>
-  <p>Delivery time:</p>
-  <%= @order.delivery_time %>
-</p>
+<div>
+  <ul class="list-unstyled">
+    <li><strong>Order#</strong> <%= @order.id %></li>
+    <li><strong>Status:</strong> <%= @order.status %></li>
+    <li><strong>Issued on:</strong> <%= @order.created_at.to_date %></li>
+    <li><strong>Option chosen:</strong> <%= @order.option_category %></li>
+    <li><strong>Meal category:</strong> <%= @order.meal.food_category.cuisine_area %> [<%= @order.meal.food_category.type %>]</li>
+    <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
+    </li>
+  </ul>
+  <p>Estimated delivery in <strong><%= @order.delivery_time %> minutes.</strong></p>
+</div>
