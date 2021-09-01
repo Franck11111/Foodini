@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2021_09_01_095329) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
-    t.time "delivery_time"
+    t.integer "delivery_time"
     t.integer "amount_cents", default: 0, null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
