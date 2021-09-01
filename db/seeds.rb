@@ -14,7 +14,10 @@ require 'faker'
 # 0. Cleaning database
 puts "Cleaning database..."
   #first destroy child
-  # Ingredient.destroy_all # not needed
+  Ingredient.destroy_all
+  FoodCategory.destroy_all
+  Meal.destroy_all
+  Restaurant.destroy_all
   Order.destroy_all
 
 # 1. Creating users
@@ -37,7 +40,7 @@ ingredient_base_url = URI.open('https://www.themealdb.com/api/json/v1/1/list.php
 ingredient_list = JSON.parse(ingredient_base_url) # => an `Array` of `Hashes`.
 
 ingredient_list['meals'].each do |idingredient|
-  p Ingredient.create(name: idingredient['strIngredient'])
+  Ingredient.create(name: idingredient['strIngredient'])
 end
 
 # 4. Creating food categories
@@ -46,14 +49,18 @@ food_type_base_url = URI.open('https://www.themealdb.com/api/json/v1/1/list.php?
 food_type_list = JSON.parse(food_type_base_url) # => an `Array` of `Hashes`.
 
 food_type_list['meals'].each do |category|
-FoodCategory.create(type: category['strcategory'])
+ FoodCategory.create(food_type: category['strCategory'])
 end
   # 4.2 Creating cuisine_area
 cuisine_area_base_url = URI.open('https://www.themealdb.com/api/json/v1/1/list.php?a=list').read
 cuisine_area_list = JSON.parse(cuisine_area_base_url) # => an `Array` of `Hashes`.
 
 cuisine_area_list['meals'].each do |area|
- p FoodCategory.create(cuisine_area: area['strarea'])
+ food_category = FoodCategory.create(cuisine_area: area['strArea'])
+ p food_category
+
+#  food_category.cuisine_area << food_category[cuisine_area]
+#  p food_category.cuisine_area
 end
 
 # 5. Creating restaurants
@@ -65,16 +72,33 @@ Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.street_a
 Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.street_address)
 
 # 6. Creating meals
+cuisine_area = cuisine_area_list['meals'].map{|area| area['strArea']}
 
-meal_name_url = URI.open('https://www.themealdb.com/api/json/v2/9973533/filter.php?a=Canadian').read
-meals_list = JSON.parse(meal_name_url)
-# 6.1 Create meals
-meals_list['meals'].each do |meal_from_api_hash|
-  p Meal.create(name: meal_from_api_hash['strMeal'], description: Faker::Food.description, price: rand(15..40), restaurant_id: 1)
+cuisine_area.each do |area|
+  meal_name_url = URI.open("https://www.themealdb.com/api/json/v2/9973533/filter.php?a=#{area}").read
+  meals_list = JSON.parse(meal_name_url)
+
+  # 6.1 Create meals
+  meals_list['meals'].each do |meal_from_api_hash|
+    meal = Meal.new(name: meal_from_api_hash['strMeal'], description: Faker::Food.description, price: rand(15..40), restaurant: Restaurant.all.sample)
+    api_meal_id = meal_from_api_hash['idMeal']
+    standard_meal_url = URI.open("https://www.themealdb.com/api/json/v1/1/lookup.php?i=#{api_meal_id}").read
+    standard_meal_list = JSON.parse(standard_meal_url)
+      (1..20).each do |ingredient_nr|
+        ingredient_name = standard_meal_list["meals"][0]["strIngredient#{ingredient_nr}"]
+          unless ingredient_name.nil? || ingredient_name.empty?
+            ingredient = Ingredient.find_by(name: ingredient_name)
+            meal.ingredients << ingredient unless ingredient.nil?
+          end
+      end
+    # category_name = standard_meal_list["meals"][0]["strCategory"]
+    # p category_name
+    # meal.food_categories << category_name
+    # area_name = standard_meal_list["meals"][0]["strArea"]
+    # meal.food_categories << area_name
+    meal.save!
+  end
 end
-# # 6.2 Add ingredient to meal
-# meal.ingredients << Ingredient.find_by name: meal_api_ingredient_name
-
 
 # Displaying all orders
  pp Order.all
