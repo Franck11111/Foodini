@@ -15,6 +15,17 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @order.status = 'pending'
     # @order.amount = @meal.price
+    @order.save
+    meals_count = Hash.new(0)
+    meals = []
+    @order.food_categories.each{|fc| meals << fc.meals } #get all meals that belongs to food categories, that have been selected
+    meals.flatten!
+
+    food_types_array = @order.food_categories.map {|fc|fc.food_type}
+    food_types_array = @order.food_categories.map {|fc|fc.cuisine_area}
+
+    meals.each {|meal| meals_count[meal] += 1}
+    meals_count.sort_by!{|m,count| -count}
 
     # session = Stripe::Checkout::Session.create(
     #   payment_method_types: ['card'],
