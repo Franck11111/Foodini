@@ -1,0 +1,28 @@
+<h1>Order summary</h1>
+
+<h2>Here is what you got!</h2>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<p>
+  <strong>Option chosen:</strong>
+  <%= @order.option_category %>
+</p>
+
+<p>
+  <strong>Order details:</strong>
+  <p>Number of meals:</p>
+  <%= @order.number_of_meals %>
+  <p>Delivery address:</p>
+  <%= @order.address %>
+  <p>Delivery time:</p>
+  <%= @order.delivery_time %>
+</p>
