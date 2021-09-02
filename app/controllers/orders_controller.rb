@@ -13,9 +13,13 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.user = current_user
     @order.status = 'pending'
-    @meal = Meal.create!(name: "Pizza", description: "Pizza tomato and cheese", price: 15, restaurant_id: 1)
-    if @order.save
-    @order.meals << @meal
+    # @order.amount = @meal.price
+    @order.save
+    @order.meals_proposition
+    meals_count = Hash.new(0)
+    meals = []
+
+
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
