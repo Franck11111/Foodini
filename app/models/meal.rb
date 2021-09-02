@@ -5,6 +5,6 @@ class Meal < ApplicationRecord
   has_many :food_categories, through: :food_category_meals
   has_many :order_meals
   belongs_to :restaurant
-  # monetize :price_cents
+  monetize :price_cents
   has_many :food_categories, through: :food_category_meals
 end

@@ -1,1 +1,37 @@
 // Specific CSS for your home-page
+.cards-container-landing {
+  width: 100%;
+  margin: auto;
+  display: block;
+}
+
+.cards-container-landing h2 {
+  display: block;
+  font-size: 35px;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.cards-landing {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 360px 360px;
+  flex-grow: 1;
+  grid-gap: 20px;
+  background-color: $yellow-food;
+}
+
+h4 {
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}

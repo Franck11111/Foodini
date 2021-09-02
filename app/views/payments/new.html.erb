@@ -1,3 +1,14 @@
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  const paymentButton = document.getElementById('pay');
+  paymentButton.addEventListener('click', () => {
+    const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+    stripe.redirectToCheckout({
+      sessionId: '<%= @order.checkout_session_id %>'
+    });
+  });
+</script>
+
 <%= simple_form_for [@order, @payment] do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -10,7 +21,8 @@
     <% end %>
   </div>
 
-  <div class="form-actions">
+  <%# <div class="form-actions">
     <%= f.button :submit %>
-  </div>
+  <%# </div> %>
+  <button id="pay" class="btn btn-flat mb-3">Pay</button>
 <% end %>

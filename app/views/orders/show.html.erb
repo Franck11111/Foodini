@@ -10,15 +10,13 @@
 
 <div>
   <ul class="list-unstyled">
-    <li><strong>Order#</strong> <%= @order.id %></li>
-    <li><strong>Status:</strong> <%= @order.status %></li>
     <li><strong>Issued on:</strong> <%= @order.created_at.to_date %></li>
     <li><strong>Option chosen:</strong> <%= @order.option_category %></li>
     <li><strong>Meal category:</strong> <% @order.food_categories.each do |food_category| %>
-      <%= food_category.cuisine_area %> [<%= food_category.type %>]</li>
+      <%= food_category.cuisine_area %> [<%= food_category.food_type %>]</li>
     <% end %>
     <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
     </li>
   </ul>
-  <p>Estimated delivery in <strong><%= @order.delivery_time %> minutes.</strong></p>
+  <p>Estimated delivery in <strong><%= @order.delivery_time %> minutes.</strong> Bon appétit!</p>
 </div>

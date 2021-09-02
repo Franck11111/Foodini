@@ -1,11 +1,22 @@
 .card-big{
-  width: 290px;
+  width: 360px;
   border-radius: 3px;
-  box-shadow: 0px 0px 5px $green-food-dark;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 20px;
-  border: 1px solid $green-food;
+  border: 1px solid $red-food;
   transition: 0.5s ease;
+  background-color: white;
+}
+
+.card-big:hover {
+  padding: 22px;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.1);
+  color: $red-food;
+}
+
+.card-big img {
+  height: 100px;
 }
 
 .card-sm{
@@ -17,4 +28,5 @@
   padding: 20px;
   border: 1px solid $green-food;
   transition: 0.5s ease;
+  background-color: white;
 }
