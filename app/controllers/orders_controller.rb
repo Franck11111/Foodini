@@ -14,10 +14,13 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @order.status = 'pending'
     # @order.amount = @meal.price
-    @order.save
-    @order.meals_proposition
-    meals_count = Hash.new(0)
-    meals = []
+    @meal = Meal.create!(name: "Pizza", description: "Pizza tomato and cheese", price: 15, restaurant_id: 1)
+    if @order.save
+      @order.meals << @meal
+      # @order.meals_proposition
+      # meals_count = Hash.new(0)
+      # meals = []
+
 
 
 
