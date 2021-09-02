@@ -1,7 +1,42 @@
 .header {
-  padding: 60px;
-  text-align: center;
-  background: #1abc9c;
+  background-size: cover;
+  background-position: 50%;
+  height: 100%;
+  padding: 80px 0;
+}
+
+.header h1 {
+  margin-top: 20px;
   color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 60px;
+  font-weight: bold;
+  // padding: 20px 0;
+}
+
+.header h2 {
+  margin: 0px auto;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-size: 30px;
+  font-weight: bold;
+  // padding: 20px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: animated-text 3s steps(29,end) 1s 1 normal both,
+             animated-cursor 600ms steps(29,end) infinite;
+}
+
+/* text animation */
+
+@keyframes animated-text{
+  from{width: 0;}
+  to{width: 1100px;}
+}
+
+/* cursor animations */
+
+@keyframes animated-cursor{
+  from{border-right-color: $red-food;}
+  to{border-right-color: transparent;}
 }

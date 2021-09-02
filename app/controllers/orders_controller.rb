@@ -26,33 +26,34 @@ class OrdersController < ApplicationController
   end
 
   def create
-    # @meal = Meal.find(params[:meal_id])
     @order = Order.new(order_params)
     @order.user = current_user
 quit    @order.status = 'pending'
     # @order.amount = @meal.price
-    @order.save
-    @order.meals_proposition
-    meals_count = Hash.new(0)
-    meals = []
-
-
-
-    # session = Stripe::Checkout::Session.create(
-    #   payment_method_types: ['card'],
-    #   line_items: [{
-    #     name: @meal.name,
-    #     images: [@meal.photo_url],
-    #     amount: @meal.price_cents,
-    #     currency: 'eur',
-    #     quantity: 1
-    #   }],
-    #   success_url: order_url(order),
-    #   cancel_url: order_url(order)
-    # )
-
+    @meal = Meal.create!(name: "Pizza", description: "Pizza tomato and cheese", price: 15, restaurant_id: 1)
     if @order.save
-      # @order.update(checkout_session_id: session.id)
+      @order.meals << @meal
+      # @order.meals_proposition
+      # meals_count = Hash.new(0)
+      # meals = []
+
+
+
+
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: @meal.name,
+        description: @meal.description,
+        amount: @meal.price_cents,
+        currency: 'eur',
+        quantity: 1
+      }],
+      success_url: order_url(@order),
+      cancel_url: order_url(@order)
+    )
+
+      @order.update(checkout_session_id: session.id, amount: @meal.price_cents*0.01)
       redirect_to new_order_payment_path(@order), notice: 'Order was successfully created.'
     else
       render :new
