@@ -1,4 +1,8 @@
 <div class="nested-fields">
-  <%= f.input :cuisine_area, required: false %>
-  <%= f.input :type, required: false %>
+  <%= f.input :cuisine_area, as: :check_boxes,
+  required: false,
+  collection: @cuisine_options, include_hidden: false %>
+  <%= f.input :food_type, as: :check_boxes,
+  required: false,
+  collection: @food_types_options, include_hidden: false %>
 </div>

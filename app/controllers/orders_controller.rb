@@ -6,12 +6,27 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @order_ingredient = OrderIngredient.new
+    # filter all Food catogories contaning cuisine areas
+    @cuisine_areas = FoodCategory.where.not(cuisine_area: nil)
+    @cuisine_options = []
+    # iterate throu array of cuisine areas and store it in cuisin_ options to show in form
+    @cuisine_areas.each do |cuisine_area|
+      @cuisine_options << cuisine_area.cuisine_area
+    end
+    # filter all Food catogories contaning food types
+    @food_types = FoodCategory.where.not(food_type: nil)
+    @food_types_options = []
+    # iterate throu array of food types and store it in food_type_options to show in form
+    @food_types.each do |food_type|
+      @food_types_options << food_type.food_type
+    end
     @food_category_order = FoodCategoryOrder.new
   end
 
   def create
     # @meal = Meal.find(params[:meal_id])
     @order = Order.new(order_params)
+    raise
     @order.user = current_user
     @order.status = 'pending'
     # @order.amount = @meal.price
