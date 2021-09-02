@@ -19,19 +19,26 @@
   display: flex;
   justify-content: space-around;
   margin-top: 40px;
-  margin-bottom: 40px;
   display: grid;
-  grid-template-columns: 360px 360px;
+  grid-template-columns: 400px 400px;
   flex-grow: 1;
   grid-gap: 20px;
   background-color: $yellow-food;
 }
 
-h4 {
+.cards-landing h4 {
   display: block;
   margin-block-start: 1.33em;
   margin-block-end: 1.33em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   font-weight: bold;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.cards-landing p {
+  margin-top: 0;
+  margin-bottom: 0;
 }

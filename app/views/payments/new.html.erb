@@ -1,3 +1,19 @@
+<div>
+  <%= simple_form_for [@order, @payment] do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs">
+      <%= f.simple_fields_for :order, @order do |p| %>
+        <%= p.simple_fields_for :user, @user do |q| %>
+          <%= render "users_fields", f: q %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <button id="pay" class="btn btn-flat mb-3">Pay</button>
+</div>
+
 <script src="https://js.stripe.com/v3/"></script>
 <script>
   const paymentButton = document.getElementById('pay');
@@ -8,21 +24,3 @@
     });
   });
 </script>
-
-<%= simple_form_for [@order, @payment] do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-    <%= f.simple_fields_for :order, @order do |p| %>
-      <%= p.simple_fields_for :user, @user do |q| %>
-        <%= render "users_fields", f: q %>
-      <% end %>
-    <% end %>
-  </div>
-
-  <%# <div class="form-actions">
-    <%= f.button :submit %>
-  <%# </div> %>
-  <button id="pay" class="btn btn-flat mb-3">Pay</button>
-<% end %>
