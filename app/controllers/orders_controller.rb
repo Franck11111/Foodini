@@ -9,8 +9,10 @@ class OrdersController < ApplicationController
     # filter all Food catogories contaning cuisine areas
     @cuisine_areas = FoodCategory.where.not(cuisine_area: nil)
     @cuisine_options = []
+    @cuisine_area_to_categories = {}
     # iterate throu array of cuisine areas and store it in cuisin_ options to show in form
     @cuisine_areas.each do |cuisine_area|
+      @cuisine_area_to_categories[cuisine_area.id] = cuisine_area.allowed_food_types.map(&:id)
       @cuisine_options << cuisine_area.cuisine_area
     end
     # filter all Food catogories contaning food types
@@ -26,7 +28,6 @@ class OrdersController < ApplicationController
   def create
     # @meal = Meal.find(params[:meal_id])
     @order = Order.new(order_params)
-    raisegs
     @order.user = current_user
     @order.status = 'pending'
     # @order.amount = @meal.price
