@@ -18,12 +18,21 @@
 .cards-landing {
   display: flex;
   justify-content: space-around;
-  margin-top: 40px;
+  margin-top: 20px;
   display: grid;
   grid-template-columns: 400px 400px;
   flex-grow: 1;
   grid-gap: 20px;
-  background-color: $yellow-food;
+}
+
+.container-how-landing {
+  padding-top: 25px;
+}
+
+.container-how-landing h2 {
+  color: white;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .cards-landing h4 {
@@ -42,3 +51,40 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+
+.container-who-landing {
+  display: flex;
+  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 440px 440px;
+  flex-grow: 1;
+  grid-gap: 10px;
+}
+
+.container-text-landing h4 {
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-size: 18px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.container-image-landing {
+  display: flex;
+  justify-content: center;
+  margin-left: 40px;
+  height: 300px;
+}
+
+.image-who {
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
