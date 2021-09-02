@@ -15,6 +15,12 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @order.status = 'pending'
     # @order.amount = @meal.price
+    @order.save
+    @order.meals_proposition
+    meals_count = Hash.new(0)
+    meals = []
+
+
 
     # session = Stripe::Checkout::Session.create(
     #   payment_method_types: ['card'],
