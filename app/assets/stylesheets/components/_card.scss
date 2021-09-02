@@ -1,5 +1,6 @@
 .card-big{
-  width: 360px;
+  width: 380px;
+  height: 280px;
   border-radius: 3px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -7,6 +8,8 @@
   border: 1px solid $red-food;
   transition: 0.5s ease;
   background-color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .card-big:hover {
