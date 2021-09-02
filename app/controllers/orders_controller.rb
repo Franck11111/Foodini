@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
     # @meal = Meal.find(params[:meal_id])
     @order = Order.new(order_params)
     @order.user = current_user
-    @order.status = 'pending'
+quit    @order.status = 'pending'
     # @order.amount = @meal.price
     @order.save
     @order.meals_proposition
