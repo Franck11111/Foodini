@@ -53,9 +53,9 @@ food_type_list['meals'].each do |category|
 end
   # 4.2 Creating cuisine_area
 cuisine_area_base_url = URI.open('https://www.themealdb.com/api/json/v1/1/list.php?a=list').read
-cuisine_area_list = JSON.parse(cuisine_area_base_url) # => an `Array` of `Hashes`.
+cuisine_area_hash = JSON.parse(cuisine_area_base_url) # => an `Array` of `Hashes`.
 
-cuisine_area_list['meals'].each do |area|
+cuisine_area_hash['meals'].each do |area|
  food_category = FoodCategory.create(cuisine_area: area['strArea'])
  p food_category
 
@@ -72,30 +72,36 @@ Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.street_a
 Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.street_address)
 
 # 6. Creating meals
-cuisine_area = cuisine_area_list['meals'].map{|area| area['strArea']}
+cuisine_area_array = cuisine_area_hash['meals'].map { |area| area['strArea'] }
+# 👆 is the same as:
+  # cuisine_area_array = []
+  # cuisine_area_list['meals'].each do |area|
+  #   cuisine_area_array << area['strArea']
+  # end
 
-cuisine_area.each do |area|
+cuisine_area_array.each do |area|
   meal_name_url = URI.open("https://www.themealdb.com/api/json/v2/9973533/filter.php?a=#{area}").read
-  meals_list = JSON.parse(meal_name_url)
+  meals_list_hash = JSON.parse(meal_name_url)
 
   # 6.1 Create meals
-  meals_list['meals'].each do |meal_from_api_hash|
+  meals_list_hash['meals'].each do |meal_from_api_hash|
     meal = Meal.new(name: meal_from_api_hash['strMeal'], description: Faker::Food.description, price: rand(15..40), restaurant: Restaurant.all.sample)
     api_meal_id = meal_from_api_hash['idMeal']
-    standard_meal_url = URI.open("https://www.themealdb.com/api/json/v1/1/lookup.php?i=#{api_meal_id}").read
-    standard_meal_list = JSON.parse(standard_meal_url)
+    complete_meal_url = URI.open("https://www.themealdb.com/api/json/v1/1/lookup.php?i=#{api_meal_id}").read
+    complete_meal_hash = JSON.parse(complete_meal_url)
       (1..20).each do |ingredient_nr|
-        ingredient_name = standard_meal_list["meals"][0]["strIngredient#{ingredient_nr}"]
+        ingredient_name = complete_meal_hash["meals"][0]["strIngredient#{ingredient_nr}"]
           unless ingredient_name.nil? || ingredient_name.empty?
             ingredient = Ingredient.find_by(name: ingredient_name)
             meal.ingredients << ingredient unless ingredient.nil?
           end
       end
-    # category_name = standard_meal_list["meals"][0]["strCategory"]
-    # p category_name
-    # meal.food_categories << category_name
-    # area_name = standard_meal_list["meals"][0]["strArea"]
-    # meal.food_categories << area_name
+    category_name = complete_meal_hash["meals"][0]["strCategory"]
+    add_food_type = FoodCategory.find_by(food_type: category_name)
+    meal.food_categories << add_food_type
+    area_name = complete_meal_hash["meals"][0]["strArea"]
+    add_cuisine_area = FoodCategory.find_by(cuisine_area: area_name)
+    meal.food_categories << add_cuisine_area
     meal.save!
   end
 end
