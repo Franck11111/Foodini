@@ -6,30 +6,24 @@
 }
 
 .header h1 {
-  margin: 0 auto;
+  margin-top: 20px;
   color: white;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  font-size: 40px;
+  font-size: 60px;
   font-weight: bold;
-  padding: 20px 0;
-  white-space: nowrap;
-  overflow: hidden;
+  // padding: 20px 0;
 }
 
-// .header-container h1 {
-//   border-right: solid 3px $red-food;
-//   white-space: nowrap;
-//   overflow: hidden;
-//   // font-family: 'Source Code Pro', monospace;
-//   // font-size: 10px;
-//   // color: rgba(255,255,255,.70);
-//   // margin: 0 auto;
-//   // width: 400px;
-// }
-
-/* Animation */
-.header h1 {
-  animation: animated-text 2s steps(29,end) 1s 1 normal both,
+.header h2 {
+  margin: 0px auto;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 30px;
+  font-weight: bold;
+  // padding: 20px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: animated-text 3s steps(29,end) 1s 1 normal both,
              animated-cursor 600ms steps(29,end) infinite;
 }
 
@@ -45,19 +39,4 @@
 @keyframes animated-cursor{
   from{border-right-color: $red-food;}
   to{border-right-color: transparent;}
-}
-
-.header p {
-  font-size: 40px;
-  color: white;
-  opacity: 0.7;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-}
-.container {
-  flex-grow: 1;
-}
-
-body,
-html {
-  height: 100%;
 }

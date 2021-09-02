@@ -1,13 +1,13 @@
 // Specific CSS for your home-page
 .cards-container-landing {
-  width: 900px;
+  width: 100%;
   margin: auto;
   display: block;
 }
 
-h2 {
+.cards-container-landing h2 {
   display: block;
-  font-size: 1.5em;
+  font-size: 35px;
   margin-block-start: 0.83em;
   margin-block-end: 0.83em;
   margin-inline-start: 0px;
@@ -24,6 +24,7 @@ h2 {
   grid-template-columns: 360px 360px;
   flex-grow: 1;
   grid-gap: 20px;
+  background-color: $yellow-food;
 }
 
 h4 {
