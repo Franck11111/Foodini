@@ -1,21 +1,22 @@
-<%= simple_form_for(@order) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class="container">
+  <%= simple_form_for(@order) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.simple_fields_for @order_ingredient do |p| %>
-      <%= render 'order_ingredients_fields', f: p %>
-    <% end %>
-    <%= f.simple_fields_for :food_category_order, @food_category_order do |p| %>
-      <%= p.simple_fields_for :food_category, @food_category do |q| %>
-        <%= render "food_categories_fields", f: q %>
-      <% end %>
-    <% end %>
-    <%= f.input :number_of_meals %>
-    <%= f.input :budget, required: true %>
-    <%= f.input :delivery_time, required: true %>
-    <%= f.input :option_category, required: true %>
-  </div>
+    <div class="form-inputs">
+    <div id="category_area_input" data-category-area="<%= @cuisine_area_to_categories.to_json %>">
+      <%= f.input :food_categories, as: :check_boxes, collection: @cuisine_areas, label_method: :cuisine_area %>
+    </div>
+    <div id="category_type_input">
+      <%= f.input :food_categories, as: :check_boxes, collection: @food_types, label_method: :food_type %>
+    </div>
+      <%= f.input :number_of_meals %>
+      <%= f.input :budget, required: true, collection: 15..100 %>
+      <%= f.input :delivery_time, required: true, collection: 15..120 %>
+      <%= f.input :option_category, as: :radio_buttons,
+      required: true,
+      collection: [['lucky'], ['cautious']], include_hidden: false %>
+    </div>
 
   <%# <div class="form-actions">
     <%= f.button :submit %>

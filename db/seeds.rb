@@ -103,10 +103,10 @@ cuisine_area_array.each do |area|
     add_cuisine_area = FoodCategory.find_by(cuisine_area: area_name)
     meal.food_categories << add_cuisine_area
     meal.save!
+    end
   end
-end
 
 # Displaying all orders
- pp Order.all
+  pp Order.all
   puts "Total orders added #{Order.count}"
   puts "Finished!"

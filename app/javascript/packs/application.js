@@ -29,10 +29,14 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { selectFoodTypes } from '../components/select_food_types';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  selectFoodTypes();
+
+
 });
 
 //import navbar
