@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
   def create
     # @meal = Meal.find(params[:meal_id])
     @order = Order.new(order_params)
-    raise
+    raisegs
     @order.user = current_user
     @order.status = 'pending'
     # @order.amount = @meal.price
