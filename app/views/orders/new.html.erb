@@ -30,11 +30,11 @@
             <div class="card-body">
 
               <div id="category_area_input" data-category-area="<%= @cuisine_area_to_categories.to_json %>">
-                <%= f.input :food_category_ids, as: :check_boxes, collection: @cuisine_areas, label_method: :cuisine_area, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preffered Cuisine Areas" %>
+                <%= f.input :food_category_ids, as: :check_boxes, collection: @cuisine_areas, label_method: :cuisine_area, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preferred Cuisine Areas", include_hidden: false %>
               </div>
 
               <div id="category_type_input">
-                <%= f.input :food_category_ids, as: :check_boxes, collection: @food_types, label_method: :food_type, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preffered Food Type"  %>
+                <%= f.input :food_category_ids, as: :check_boxes, collection: @food_types, label_method: :food_type, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preferred Food Type", include_hidden: false %>
               </div>
 
             </div>
