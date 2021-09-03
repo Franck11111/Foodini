@@ -22,7 +22,7 @@
         :label => "Preffered Food Type" %>
       </div>
       <div class="form-inputs">
-        <%= f.input :number_of_meals %>
+        <%= f.input :number_of_meals, collection: 1..10, default: 1 %>
       </div>
       <div class="form-inputs">
         <%= f.input :budget, required: true, collection: 15..100 %>
@@ -33,11 +33,11 @@
       <div class="form-inputs">
         <%= f.input :option_category, as: :radio_buttons,
         required: true, include_hidden: false,
-        # collection_wrapper_class: 'option-container',
+        wrapper_html: { class: "cuisine-pick-container" },
         # collection_wrapper_tag: 'div',
         # item_wrapper_class: 'category-item',
             input_html: {class: 'pick-option-radio'},
-            collection: ['lucky', 'cautious'] %>
+            collection: ['I am feeling lucky', 'I am feeling cautious'] %>
       </div>
       <button id="pay" class="btn btn-flat mb-3">Next</button>
     </div>

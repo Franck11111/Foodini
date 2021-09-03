@@ -43,11 +43,8 @@ padding: 0px;
 }
 
 .option-container {
-  display: flex;
-}
-
-.category-item {
-  flex: 0 0 30%;
+  display:inline-flex;
+  justify-content: space-evenly;
 }
 
 .pick-option-radio {
