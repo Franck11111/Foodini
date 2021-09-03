@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
       # @order.meals_proposition
       # meals_count = Hash.new(0)
       # meals = []
-raise
+# raise
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         line_items: [{
