@@ -1,0 +1,42 @@
+.cuisine-pick-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.cuisine-pick-container .form-check {
+padding: 0px;
+}
+
+.cuisine-pick-form {
+  position:absolute;
+  transform: scale(0);
+  }
+
+.cuisine-pick-form + label {
+  cursor: pointer;
+  color: white;
+  padding: 20px 24px;
+  margin: 5px;
+  border-radius: 6px;
+  border-style: double;
+  background-color: #f0bc48;
+  border-color: #efb83c;
+}
+
+
+.cuisine-pick-form:hover + label {
+  color: white;
+  padding: 20px 24px;
+  border-radius: 6px;
+    border-style: double;
+  background-color: #f0bc48;
+  border-color: #DA0404;
+}
+.cuisine-pick-form:checked + label {
+  color: white;
+  padding: 20px 24px;
+  border-radius: 6px;
+    border-style: double;
+  background-color: #FF4848;
+  border-color: #DA0404;
+}
