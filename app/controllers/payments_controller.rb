@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
     @payment = Payment.new(payment_params)
     @payment.order = @order
     if @payment.save
-      redirect_to order_path(@order), notice: 'Payment was successfully processed.'
+      redirect_to order_path(@order)
     else
       render :new
     end

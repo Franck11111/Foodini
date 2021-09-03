@@ -68,3 +68,4 @@ gem "cocoon"
 gem 'money-rails'
 gem 'stripe'
 gem 'effective_form_inputs'
+gem 'stripe_event'

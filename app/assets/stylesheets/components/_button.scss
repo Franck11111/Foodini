@@ -2,13 +2,15 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: $green-food;
+  background: $red-food;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: $green-food;
+  // background: $red-food-dark;
   color: white;
+  background: #fd5c5c;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 div.btn-create-order {
