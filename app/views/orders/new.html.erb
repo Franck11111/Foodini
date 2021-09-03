@@ -28,7 +28,7 @@
       <div class="form-inputs">
         <%= f.input :option_category, as: :radio_buttons,
         required: true,
-        collection: [['lucky'], ['cautious']], include_hidden: false %>
+        collection: [['lucky'], ['cautious']], include_hidden: false, input_html: { class: "pick-option-radio " } %>
       </div>
       <button id="pay" class="btn btn-flat mb-3">Next</button>
     </div>
