@@ -1,22 +1,21 @@
 <h1>Order summary</h1>
+  <h2>Here is what you got!</h2>
 
-<h2>Here is what you got!</h2>
+  <h2>
+    <strong><% @order.meals.each do |meal| %>
+      <%= meal.name %>
+    <% end %></strong>
+  </h2>
 
-<h2>
-  <strong><% @order.meals.each do |meal| %>
-    <%= meal.name %>
-  <% end %></strong>
-</h2>
-
-<div>
-  <ul class="list-unstyled">
-    <li><strong>Issued on:</strong> <%= @order.created_at.to_date %></li>
-    <li><strong>Option chosen:</strong> <%= @order.option_category %></li>
-    <li><strong>Meal category:</strong> <% @order.food_categories.each do |food_category| %>
-      <%= food_category.cuisine_area %> [<%= food_category.food_type %>]</li>
-    <% end %>
-    <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
-    </li>
-  </ul>
-  <p>Estimated delivery in <strong><%= @order.delivery_time %> minutes.</strong> Bon appétit!</p>
-</div>
+  <div>
+    <ul class="list-unstyled">
+      <li><strong>Issued on:</strong> <%= @order.created_at.to_date %></li>
+      <li><strong>Option chosen:</strong> <%= @order.option_category %></li>
+      <li><strong>Meal category:</strong> <% @order.food_categories.each do |food_category| %>
+        <%= food_category.cuisine_area %> [<%= food_category.food_type %>]</li>
+      <% end %>
+      <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
+      </li>
+    </ul>
+    <p>Estimated delivery in <strong><%= @order.delivery_time %> minutes.</strong> Bon appétit!</p>
+  </div>
