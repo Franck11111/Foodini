@@ -15,10 +15,12 @@ require 'faker'
 puts "Cleaning database..."
   #first destroy child
   Ingredient.destroy_all
+  FoodCategoryMeal.destroy_all
   FoodCategory.destroy_all
   Meal.destroy_all
   Restaurant.destroy_all
   Order.destroy_all
+  User.destroy_all
 
 # 1. Creating users
 puts "Creating users..."
