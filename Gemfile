@@ -67,3 +67,4 @@ gem 'open-uri'
 gem "cocoon"
 gem 'money-rails'
 gem 'stripe'
+gem 'effective_form_inputs'

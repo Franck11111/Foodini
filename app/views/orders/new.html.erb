@@ -1,23 +1,92 @@
-<%= simple_form_for(@order) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class="container">
+  <h1 class="text-center font-weight-bold">Order details</h1>
+  <h2 class="text-center">Please fill in your personal information</h2>
 
-  <div class="form-inputs">
-    <%= f.simple_fields_for @order_ingredient do |p| %>
-      <%= render 'order_ingredients_fields', f: p %>
-    <% end %>
-    <%= f.simple_fields_for :food_category_order, @food_category_order do |p| %>
-      <%= p.simple_fields_for :food_category, @food_category do |q| %>
-        <%= render "food_categories_fields", f: q %>
+  <%= simple_form_for(@order) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div id="accordion">
+
+    <div class="form-inputs">
+      <%= f.simple_fields_for @order_ingredient do |p|%>
+        <%= render 'order_ingredients_fields', f: p %>
       <% end %>
-    <% end %>
-    <%= f.input :number_of_meals %>
-    <%= f.input :budget, required: true %>
-    <%= f.input :delivery_time, required: true %>
-    <%= f.input :option_category, required: true %>
+
+      <%= f.simple_fields_for :food_category_order, @food_category_order do |p| %>
+        <%= p.simple_fields_for :food_category, @food_category do |q| %>
+          <%= render "food_categories_fields", f: q %>
+        <% end %>
+      <% end %>
+
+      <div class="card">
+
+        <div class="card-header" id="headingThree">
+          <h3 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <strong>Additional meals</strong>
+            </button>
+          </h3>
+        </div>
+
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+          <div class="card-body">
+            <div class="nested-fields">
+               <%= f.input :number_of_meals %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-header" id="headingFour">
+          <h3 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            <strong>Budget and Waiting time</strong>
+            </button>
+          </h3>
+        </div>
+
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+          <div class="card-body">
+            <div class="nested-fields">
+              <%= f.input :budget, required: true, placeholder: '€' %>
+              <%= f.input :delivery_time, required: true, placeholder: 'min.'%>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-header" id="headingFive">
+          <h3 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            <strong>How lucky do you feel today?</strong>
+            </button>
+          </h3>
+        </div>
+
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+          <div class="card-body">
+            <div class="nested-fields">
+              <%= f.input :option_category, required: true %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+    <div class="form-actions text-center mt-3">
+      <%= f.button :submit, class: "btn btn-lg rounded btn-secondary" %>
+    </div>
+  <% end %>
+
+</div>
