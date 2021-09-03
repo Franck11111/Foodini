@@ -32,11 +32,11 @@
             <div class="card-body">
 
               <div id="category_area_input" data-category-area="<%= @cuisine_area_to_categories.to_json %>">
-                <%= f.input :food_categories, as: :check_boxes, collection: @cuisine_areas, label_method: :cuisine_area, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preffered Cuisine Areas" %>
+                <%= f.input :food_category_ids, as: :check_boxes, collection: @cuisine_areas, label_method: :cuisine_area, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preffered Cuisine Areas" %>
               </div>
 
               <div id="category_type_input">
-                <%= f.input :food_categories, as: :check_boxes, collection: @food_types, label_method: :food_type, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preffered Food Type"  %>
+                <%= f.input :food_category_ids, as: :check_boxes, collection: @food_types, label_method: :food_type, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preffered Food Type"  %>
               </div>
 
             </div>
@@ -100,7 +100,7 @@
               <div class="nested-fields">
                 <%= f.input :option_category, as: :radio_buttons,
                 required: true,
-                collection: [['lucky'], ['cautious']], include_hidden: false %>
+                collection: [["I'm feeling lucky", "lucky"], ["I'm feeling cautious", "cautious"]], include_hidden: false %>
               </div>
             </div>
           </div>

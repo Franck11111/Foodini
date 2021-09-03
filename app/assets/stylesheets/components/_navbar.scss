@@ -58,3 +58,27 @@ color: $red-food-dark;
   transform: rotate(360deg);
   transition: all 0.5s ease-in-out 0s;
 }
+
+.navbar-sections {
+  display: inline-flex;
+  align-items: center;
+  text-align: right;
+}
+
+.navbar-sections a {
+  color: rgb(22, 22, 22);
+  text-decoration: none;
+  margin-left: 45px;
+  margin-right: 45px;
+  font-size: 18px;
+  margin-bottom: 0px;
+}
+
+.navbar-sections a:hover {
+  color: $red-food;
+  text-decoration: none;
+}
+
+.navbar-sections p {
+  margin-bottom: 0px;
+}

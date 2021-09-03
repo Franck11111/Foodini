@@ -1,13 +1,27 @@
 .btn-flat {
   color: white;
   padding: 8px 24px;
-  border-radius: 4px;
+  border-radius: 25px;
   background: $red-food;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
-  // background: $red-food-dark;
+  color: white;
+  background: #fd5c5c;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+.btn-flat-landing {
+  color: white;
+  padding: 12px 48px;
+  border-radius: 40px;
+  background: $red-food;
+  transition: background 0.3s ease;
+  font-size: 17px;
+}
+
+.btn-flat-landing:hover {
   color: white;
   background: #fd5c5c;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
