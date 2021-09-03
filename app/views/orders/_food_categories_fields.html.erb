@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-<div class="card">
-  <div class="card-header" id="headingTwo">
-    <h3 class="mb-0">
-      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-      <strong>What I'm in the mood for food</strong>
-      </button>
-    </h3>
-  </div>
-
-  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-    <div class="card-body">
-      <div class="nested-fields">
-        <%= f.input :cuisine_area, required: false %>
-        <%= f.input :type, required: false %>
-      </div>
-    </div>
-  </div>
-
-=======
 <div class="nested-fields" data-category-area="<%= @cuisine_area_to_categories.to_json %>">
   <div id="category_areas_input">
     <%= f.input :cuisine_area, as: :check_boxes,
@@ -29,5 +9,4 @@
     required: false,
     collection: @food_types_options, include_hidden: false %>
   </div>
->>>>>>> master
 </div>
