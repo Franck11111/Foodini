@@ -34,17 +34,19 @@ class OrdersController < ApplicationController
     if @order.save
       meals = @order.meals_proposition.first(@order.number_of_meals).map{|array| array.first}
       @order.meals << meals
-
-
-
-
+      meal_price = 0
+      @order.meals.each do |meal|
+        meal_price += meal.price
+      end
+      @order.amount = meal_price
+      @order.save
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
         name: "name",
         description: "description",
-        amount: 20000,
+        amount: @order.amount_cents,
         currency: 'eur',
         quantity: 1
       }],
@@ -52,7 +54,7 @@ class OrdersController < ApplicationController
       cancel_url: order_url(@order)
     )
 
-      @order.update(checkout_session_id: session.id, amount: @meal.price_cents*0.01)
+      @order.update(checkout_session_id: session.id)
       redirect_to new_order_payment_path(@order), notice: 'Order was successfully created.'
     else
       render :new

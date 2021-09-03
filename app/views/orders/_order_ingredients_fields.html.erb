@@ -1,3 +1,19 @@
-<div class="nested-fields">
-  <%= f.input :ingredient, required: false, :label => "Alergens" %>
+<div class="card">
+
+  <div class="card-header" id="headingOne">
+    <h3 class="mb-0">
+      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      <strong>Personal preferences</strong>
+      </button>
+    </h3>
+  </div>
+
+  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+    <div class="card-body">
+      <div class="nested-fields">
+        <%= f.input :ingredient, required: false, label: 'Allergens', placeholder: 'Select your Allergens' %>
+      </div>
+    </div>
+  </div>
+
 </div>
