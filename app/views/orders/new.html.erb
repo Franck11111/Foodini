@@ -10,11 +10,16 @@
     </div>
     <div class="form-inputs">
       <div id="category_area_input" data-category-area="<%= @cuisine_area_to_categories.to_json %>">
-        <%= f.input :food_categories, as: :check_boxes, collection: @cuisine_areas, label_method: :cuisine_area, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preffered Cuisine Areas" %>
+        <%= f.input :food_categories, as: :check_boxes, include_hidden: false, collection: @cuisine_areas, label_method: :cuisine_area, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preffered Cuisine Areas" %>
       </div>
 
       <div id="category_type_input">
-        <%= f.input :food_categories, as: :check_boxes, collection: @food_types, label_method: :food_type, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preffered Food Type" %>
+        <%= f.input :food_categories, as: :check_boxes,
+        collection: @food_types,
+        label_method: :food_type, include_hidden: false,
+        input_html: { class: "cuisine-pick-form " },
+        wrapper_html: { class: "cuisine-pick-container" },
+        :label => "Preffered Food Type" %>
       </div>
       <div class="form-inputs">
         <%= f.input :number_of_meals %>
@@ -27,8 +32,12 @@
       </div>
       <div class="form-inputs">
         <%= f.input :option_category, as: :radio_buttons,
-        required: true,
-        collection: [['lucky'], ['cautious']], include_hidden: false, input_html: { class: "pick-option-radio " } %>
+        required: true, include_hidden: false,
+        # collection_wrapper_class: 'option-container',
+        # collection_wrapper_tag: 'div',
+        # item_wrapper_class: 'category-item',
+            input_html: {class: 'pick-option-radio'},
+            collection: ['lucky', 'cautious'] %>
       </div>
       <button id="pay" class="btn btn-flat mb-3">Next</button>
     </div>

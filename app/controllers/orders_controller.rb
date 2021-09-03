@@ -62,6 +62,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:order_option_category, :delivery_time, :budget, :number_of_meals, :address, :user_id, food_category_ids: [], order_ingredients_attributes: [:order_id, :ingredient_id], order_meals_attributes: [:order_id, :meal_id])
+    params.require(:order).permit(:option_category, :delivery_time, :budget, :number_of_meals, :address, :user_id, food_category_ids: [], order_ingredients_attributes: [:order_id, :ingredient_id], order_meals_attributes: [:order_id, :meal_id])
   end
 end
