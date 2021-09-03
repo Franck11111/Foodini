@@ -57,7 +57,7 @@
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
             <div class="card-body">
               <div class="nested-fields">
-                <%= f.input :number_of_meals %>
+        <%= f.input :number_of_meals, collection: 1..10, default: 1 %>
               </div>
             </div>
           </div>
@@ -79,6 +79,7 @@
               <div class="nested-fields">
                 <%= f.input :budget, required: true, collection: 15..100, placeholder: '€' %>
                 <%= f.input :delivery_time, required: true, collection: 15..120, placeholder: 'min.' %>
+
               </div>
             </div>
           </div>
@@ -98,9 +99,13 @@
           <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
             <div class="card-body">
               <div class="nested-fields">
-                <%= f.input :option_category, as: :radio_buttons,
-                required: true,
-                collection: [["I'm feeling lucky", "lucky"], ["I'm feeling cautious", "cautious"]], include_hidden: false %>
+ <%= f.input :option_category, as: :radio_buttons,
+        required: true, include_hidden: false,
+        wrapper_html: { class: "cuisine-pick-container" },
+        # collection_wrapper_tag: 'div',
+        # item_wrapper_class: 'category-item',
+            input_html: {class: 'pick-option-radio'},
+            collection: ['I am feeling lucky', 'I am feeling cautious'] %>
               </div>
             </div>
           </div>
