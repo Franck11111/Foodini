@@ -5,17 +5,17 @@
 
     <div class="form-inputs">
     <div id="category_area_input" data-category-area="<%= @cuisine_area_to_categories.to_json %>">
-      <%= f.input :food_categories, as: :check_boxes, collection: @cuisine_areas, label_method: :cuisine_area %>
+      <%= f.input :food_category_ids, as: :check_boxes, collection: @cuisine_areas, label_method: :cuisine_area %>
     </div>
     <div id="category_type_input">
-      <%= f.input :food_categories, as: :check_boxes, collection: @food_types, label_method: :food_type %>
+      <%= f.input :food_category_ids, as: :check_boxes, collection: @food_types, label_method: :food_type %>
     </div>
       <%= f.input :number_of_meals %>
       <%= f.input :budget, required: true, collection: 15..100 %>
       <%= f.input :delivery_time, required: true, collection: 15..120 %>
       <%= f.input :option_category, as: :radio_buttons,
       required: true,
-      collection: [['lucky'], ['cautious']], include_hidden: false %>
+      collection: [["I'm feeling lucky", "lucky"], ["I'm feeling cautious", "cautious"]], include_hidden: false %>
     </div>
 
   <%# <div class="form-actions">
