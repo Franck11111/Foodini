@@ -9,13 +9,11 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
     <div id="accordion">
-
       <div class="form-inputs">
 
         <%= f.simple_fields_for @order_ingredient do |p|%>
           <%= render 'order_ingredients_fields', f: p %>
         <% end %>
-
 
         <div class="card">
 
@@ -32,11 +30,11 @@
             <div class="card-body">
 
               <div id="category_area_input" data-category-area="<%= @cuisine_area_to_categories.to_json %>">
-                <%= f.input :food_category_ids, as: :check_boxes, collection: @cuisine_areas, label_method: :cuisine_area, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preffered Cuisine Areas" %>
+                <%= f.input :food_category_ids, as: :check_boxes, collection: @cuisine_areas, label_method: :cuisine_area, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preferred Cuisine Areas", include_hidden: false %>
               </div>
 
               <div id="category_type_input">
-                <%= f.input :food_category_ids, as: :check_boxes, collection: @food_types, label_method: :food_type, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preffered Food Type"  %>
+                <%= f.input :food_category_ids, as: :check_boxes, collection: @food_types, label_method: :food_type, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preferred Food Type", include_hidden: false %>
               </div>
 
             </div>
@@ -49,7 +47,7 @@
           <div class="card-header" id="headingThree">
             <h3 class="mb-0">
               <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              <strong>Additional meals</strong>
+              <strong>Total number of meals</strong>
               </button>
             </h3>
           </div>
