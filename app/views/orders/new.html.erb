@@ -17,7 +17,7 @@
         <%= f.input :food_category_ids, as: :check_boxes, collection: @food_types, label_method: :food_type, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preffered Food Type" %>
       </div>
       <div class="form-inputs">
-        <%= f.input :number_of_meals %>
+        <%= f.input :number_of_meals, required: true %>
       </div>
       <div class="form-inputs">
         <%= f.input :budget, required: true, collection: 15..100 %>
