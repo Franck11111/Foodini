@@ -4,22 +4,33 @@
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
     <div class="form-inputs">
-    <div id="category_area_input" data-category-area="<%= @cuisine_area_to_categories.to_json %>">
-      <%= f.input :food_category_ids, as: :check_boxes, collection: @cuisine_areas, label_method: :cuisine_area, include_hidden: false %>
+      <%= f.simple_fields_for @order_ingredient do |p|%>
+        <%= render 'order_ingredients_fields', f: p %>
+      <% end %>
     </div>
-    <div id="category_type_input">
-      <%= f.input :food_category_ids, as: :check_boxes, collection: @food_types, label_method: :food_type, include_hidden: false %>
-    </div>
-      <%= f.input :number_of_meals %>
-      <%= f.input :budget, required: true, collection: 15..100 %>
-      <%= f.input :delivery_time, required: true, collection: 15..120 %>
-      <%= f.input :option_category, as: :radio_buttons,
-      required: true,
-      collection: [["I'm feeling lucky", "lucky"], ["I'm feeling cautious", "cautious"]], include_hidden: false %>
-    </div>
+    <div class="form-inputs">
+      <div id="category_area_input" data-category-area="<%= @cuisine_area_to_categories.to_json %>">
+        <%= f.input :food_category_ids, as: :check_boxes, collection: @cuisine_areas, label_method: :cuisine_area, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preffered Cuisine Areas" %>
+      </div>
 
-  <%# <div class="form-actions">
-    <%= f.button :submit %>
-  <%# </div> %>
-  <button id="pay" class="btn btn-flat mb-3">Next</button>
-<% end %>
+      <div id="category_type_input">
+        <%= f.input :food_category_ids, as: :check_boxes, collection: @food_types, label_method: :food_type, input_html: { class: "cuisine-pick-form " }, wrapper_html: { class: "cuisine-pick-container" }, :label => "Preffered Food Type" %>
+      </div>
+      <div class="form-inputs">
+        <%= f.input :number_of_meals %>
+      </div>
+      <div class="form-inputs">
+        <%= f.input :budget, required: true, collection: 15..100 %>
+      </div>
+      <div class="form-inputs">
+        <%= f.input :delivery_time, required: true, collection: 15..120 %>
+      </div>
+      <div class="form-inputs">
+        <%= f.input :option_category, as: :radio_buttons,
+        required: true,
+        collection: [["I'm feeling lucky", "lucky"], ["I'm feeling cautious", "cautious"]], include_hidden: false %>
+      </div>
+      <button id="pay" class="btn btn-flat mb-3">Next</button>
+    </div>
+  <% end %>
+</div>

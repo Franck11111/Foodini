@@ -30,28 +30,31 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @order.status = 'pending'
     # @order.amount = @meal.price
-
-    @meal = Meal.create!(name: "Pizza", description: "Pizza tomato and cheese", price: 15, restaurant_id: 1)
+    # @meal = Meal.create!(name: "Pizza", description: "Pizza tomato and cheese", price: 15, restaurant_id: 1)
     if @order.save
-      @order.meals << @meal
-      # @order.meals_proposition
-      # meals_count = Hash.new(0)
-      # meals = []
-# raise
-      session = Stripe::Checkout::Session.create(
-        payment_method_types: ['card'],
-        line_items: [{
-          name: @meal.name,
-          description: @meal.description,
-          amount: @meal.price_cents,
-          currency: 'eur',
-          quantity: 1
-        }],
-        success_url: order_url(@order),
-        cancel_url: order_url(@order)
-      )
+      meals = @order.meals_proposition.first(@order.number_of_meals).map{|array| array.first}
+      @order.meals << meals
+      meal_price = 0
+      @order.meals.each do |meal|
+        meal_price += meal.price
+      end
+      @order.amount = meal_price
+      @order.save
 
-      @order.update(checkout_session_id: session.id, amount: @meal.price_cents * 0.01, option_category: @meal.option_category)
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: "name",
+        description: "description",
+        amount: @order.amount_cents,
+        currency: 'eur',
+        quantity: 1
+      }],
+      success_url: order_url(@order),
+      cancel_url: order_url(@order)
+    )
+
+      @order.update(checkout_session_id: session.id)
       redirect_to new_order_payment_path(@order), notice: 'Order was successfully created.'
     else
       render :new
@@ -61,7 +64,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    # params.require(:order).permit(:option_category, :delivery_time, :budget, :number_of_meals, :address, :user_id, order_ingredients_attributes: [:order_id, :ingredient_id], order_meals_attributes: [:order_id, :meal_id], food_category_orders_attributes: [])
     params.require(:order).permit(:option_category, :delivery_time, :budget, :number_of_meals, :address, :user_id, food_category_ids: [], order_ingredients_attributes: [:order_id, :ingredient_id], order_meals_attributes: [:order_id, :meal_id])
   end
 end
