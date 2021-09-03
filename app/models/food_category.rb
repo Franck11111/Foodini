@@ -6,10 +6,7 @@ class FoodCategory < ApplicationRecord
     allowed_food_types = []
     meals.each do |meal|
       allowed_food_types << meal.food_categories.where.not(food_type: nil)
-
     end
     allowed_food_types.flatten.uniq
   end
-
-
 end

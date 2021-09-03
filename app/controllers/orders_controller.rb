@@ -28,14 +28,13 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.user = current_user
-quit    @order.status = 'pending'
+    @order.status = 'pending'
     # @order.amount = @meal.price
-    @meal = Meal.create!(name: "Pizza", description: "Pizza tomato and cheese", price: 15, restaurant_id: 1)
+    # @meal = Meal.create!(name: "Pizza", description: "Pizza tomato and cheese", price: 15, restaurant_id: 1)
     if @order.save
-      @order.meals << @meal
-      # @order.meals_proposition
-      # meals_count = Hash.new(0)
-      # meals = []
+      meals = @order.meals_proposition.first(@order.number_of_meals).map{|array| array.first}
+      @order.meals << meals
+
 
 
 
@@ -43,9 +42,9 @@ quit    @order.status = 'pending'
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
-        name: @meal.name,
-        description: @meal.description,
-        amount: @meal.price_cents,
+        name: "name",
+        description: "description",
+        amount: 20000,
         currency: 'eur',
         quantity: 1
       }],
@@ -63,6 +62,6 @@ quit    @order.status = 'pending'
   private
 
   def order_params
-    params.require(:order).permit(:order_option_category, :delivery_time, :budget, :number_of_meals, :address, :user_id, order_ingredients_attributes: [:order_id, :ingredient_id], order_meals_attributes: [:order_id, :meal_id])
+    params.require(:order).permit(:order_option_category, :delivery_time, :budget, :number_of_meals, :address, :user_id, food_category_ids: [], order_ingredients_attributes: [:order_id, :ingredient_id], order_meals_attributes: [:order_id, :meal_id])
   end
 end
