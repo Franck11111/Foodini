@@ -55,8 +55,8 @@ color: $red-food-dark;
 
 .image_logo:hover {
   cursor: default;
-  transform: rotate(360deg);
-  transition: all 0.5s ease-in-out 0s;
+  transform: rotateY(180deg);
+  transition: all 1s ease-in-out 0s;
 }
 
 .navbar-sections {
