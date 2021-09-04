@@ -44,8 +44,8 @@ class OrdersController < ApplicationController
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
-        name: "name",
-        description: "description",
+        name: "Option chosen: #{@order.option_category}",
+        description: "Number of meals: #{@order.number_of_meals}",
         amount: @order.amount_cents,
         currency: 'eur',
         quantity: 1

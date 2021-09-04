@@ -110,9 +110,9 @@
 
 .card-review {
   width: 300px;
-  height: 210px;
+  height: 230px;
   margin-top: 25px;
-  margin: 20 auto;
+  padding-bottom: 30px;
   border-radius: 5px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
   color: black;
@@ -120,6 +120,15 @@
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+.meal-delivered {
+  color : $red-food-dark;
+  margin-top: 3px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 11px;
+  font-size: 15px;
 }
 
 .image-background {
@@ -134,19 +143,22 @@
   display: flex;
   justify-content: space-between;
   margin-right: 15px;
+  margin-top: 0px;
 }
 
 .text-review {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin-left: 10px;
+  margin-top: 12px;
   margin-right: 30px;
 }
 
 .review-title {
+  padding-top: 0px;
   margin: 0px;
   margin-left: 0px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .review-content {
@@ -155,9 +167,11 @@
 }
 
 .user-name {
-  margin-top: 37px;
+  margin-top: 17px;
+  margin-bottom: 5px;
+  margin-right: 2px;
+  text-align: right;
   font-size: 12px;
-  color: $red-food;
   font-weight: bold;
 }
 
@@ -166,6 +180,15 @@
   border-radius: 50%;
   border: 1px solid white;
   position: absolute;
-  top: 105px;
+  top: 113px;
   left: 243px;
+}
+
+.user-rating {
+  display: flex;
+  flex-direction: column;
+}
+
+.rating {
+  font-size: 10px;
 }
