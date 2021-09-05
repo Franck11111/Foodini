@@ -1,19 +1,21 @@
-<div class="container">
-  <h2>Order summary</h2>
+<div class="container-checkout">
+  <div class="container">
+    <h3>Order summary</h3>
+  </div>
   <h1 class="text-center">Here is what you got!</h1>
 
   <div class="card-checkout">
-    <img src="https://cdn.tasteatlas.com//images/dishes/ad3ef1fb39eb42958e7462961951e45c.jpg?w=905&h=510" class="image-background">
-    <p class="issued-on"><%= @order.created_at.to_date %></p>
+    <div class="container-image-checkout">
+      <img src="https://cdn.tasteatlas.com//images/dishes/ad3ef1fb39eb42958e7462961951e45c.jpg?w=905&h=510" class="image-background-checkout">
+    </div>
     <div class="full-checkout">
+      <p class="issued-on-checkout"><%= @order.created_at.to_date %></p>
       <div class="checkout-main">
-        <h2 class="meal-name">
-          <strong><% @order.meals.each do |meal| %>
+        <h2><strong><% @order.meals.each do |meal| %>
             <%= meal.name %>
           <% end %></strong>
         </h2>
-        <p class="checkout-desc">
-          <strong><% @order.meals.each do |meal| %>
+        <p><strong><% @order.meals.each do |meal| %>
             <%= meal.description %>
           <% end %></strong>
         </p>
@@ -39,6 +41,6 @@
   </div>
   <div class="timing-my-orders">
     <p>Estimated delivery in <strong><%= @order.delivery_time %> minutes.</strong> Bon appétit!</p>
-    <%= link_to 'My orders', orders_path, class: "btn btn-flat-dashboard" %>
+    <%= link_to 'View my orders', orders_path, class: "btn btn-flat" %>
   </div>
 </div>

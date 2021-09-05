@@ -1,0 +1,50 @@
+.container-checkout {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-checkout {
+  width: 1000px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+  color: black;
+  display: flex;
+}
+
+.image-background-checkout {
+  height: 100%;
+  width: 550px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  object-fit: cover;
+}
+
+.full-checkout {
+  padding-left: 10px;
+}
+
+.issued-on-checkout {
+  color : rgb(105, 104, 104);
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+.checkout-main h2 {
+  font-size: 30px;
+}
+
+.timing-my-orders{
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.timing-my-orders p{
+  padding: 0px;
+  margin: 0px;
+}

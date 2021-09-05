@@ -1,5 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "show";
 
 .cards-orders {
   display: flex;
@@ -11,7 +12,7 @@
 }
 
 .card-order {
-  width: 300px;
+  width: 310px;
   height: 230px;
   margin-top: 25px;
   padding-bottom: 10px;
@@ -44,7 +45,6 @@
   display: flex;
   flex-direction: column;
   margin-left: 10px;
-  // margin-top: 12px;
   margin-right: 15px;
 }
 
