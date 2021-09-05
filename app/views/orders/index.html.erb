@@ -1,0 +1,29 @@
+<div class="title-orders">
+  <% if @orders.count==1 %>
+        <h1>Your order</h1>
+      <% else %>
+        <h1>Your previous orders</h1>
+      <% end %>
+</div>
+
+<div class="container-orders mb-5">
+    <% @orders.each do |order| %>
+      <div class="card-order">
+        <img src="https://cdn.tasteatlas.com//images/dishes/ad3ef1fb39eb42958e7462961951e45c.jpg?w=905&h=510" class="image-background">
+        <p class="issued-on"><%= order.created_at.to_date %></p>
+        <div class="full-order">
+          <div class="order-detail">
+            <h4 class="order-name"><% order.meals.each do |meal| %>
+              <%= meal.name %>
+            <% end %></h4>
+            <p class="order-desc"><%= order.meals.each do |meal| %>
+              <%= meal.description %>
+            <% end %></p>
+          </div>
+          <div class="make-review">
+            <%= link_to 'Leave a review', 'orders/new', class: "btn btn-flat-landing mt-5" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>
