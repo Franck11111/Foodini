@@ -17,7 +17,7 @@
 }
 
 .navbar-brand h4:hover {
-color: $red-food-dark;
+  color: $red-food-dark;
 }
 
 .navbar .navbar-collapse {
@@ -81,4 +81,9 @@ color: $red-food-dark;
 
 .navbar-sections p {
   margin-bottom: 0px;
+}
+
+#navbarDropdown {
+  cursor: pointer;
+  margin-left: 120px;
 }

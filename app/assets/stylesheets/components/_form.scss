@@ -17,7 +17,7 @@ padding: 0px;
 .cuisine-pick-form + label {
   cursor: pointer;
   color: white;
-  padding: 20px 24px;
+  padding: 15px 24px;
   margin: 5px;
   border-radius: 6px;
   border-style: double;
@@ -26,16 +26,11 @@ padding: 0px;
 }
 
 .cuisine-pick-form:hover + label {
-  color: white;
-  padding: 20px 24px;
-  border-radius: 6px;
-    border-style: double;
-  background-color: #f0bc48;
   border-color: #DA0404;
 }
 .cuisine-pick-form:checked + label {
   color: white;
-  padding: 20px 24px;
+  padding: 15px 24px;
   border-radius: 6px;
     border-style: double;
   background-color: #FF4848;
@@ -62,11 +57,6 @@ padding: 0px;
   border-color: #efb83c;
 }
 .pick-option-radio:hover + label {
-  color: white;
-  padding: 20px 24px;
-  border-radius: 6px;
-    border-style: double;
-  background-color: #f0bc48;
   border-color: #DA0404;
 }
 .pick-option-radio:checked + label {
