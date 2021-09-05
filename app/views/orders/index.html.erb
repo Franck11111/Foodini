@@ -1,27 +1,28 @@
 <div class="title-orders">
   <% if @orders.count==1 %>
-        <h1>Your order</h1>
+        <h1 class="text-center">Your order</h1>
       <% else %>
-        <h1>Your previous orders</h1>
+        <h1 class="text-center">Your previous orders</h1>
       <% end %>
 </div>
 
-<div class="container-orders mb-5">
+<div class="cards-orders">
     <% @orders.each do |order| %>
       <div class="card-order">
         <img src="https://cdn.tasteatlas.com//images/dishes/ad3ef1fb39eb42958e7462961951e45c.jpg?w=905&h=510" class="image-background">
         <p class="issued-on"><%= order.created_at.to_date %></p>
         <div class="full-order">
           <div class="order-detail">
-            <h4 class="order-name"><% order.meals.each do |meal| %>
+            <h4 class="meal-name"><% order.meals.each do |meal| %>
               <%= meal.name %>
             <% end %></h4>
-            <p class="order-desc"><%= order.meals.each do |meal| %>
-              <%= meal.description %>
+            <p class="order-desc"><% order.meals.each do |meal| %>
+              <strong>Restaurant: </strong><%= meal.restaurant.name %>
             <% end %></p>
+            <p class="order-desc"><strong>Option chosen: </strong><%= order.option_category %></p>
           </div>
           <div class="make-review">
-            <%= link_to 'Leave a review', 'orders/new', class: "btn btn-flat-landing mt-5" %>
+            <%= link_to 'Leave a review', 'orders/new', class: "btn btn-flat-dashboard" %>
           </div>
         </div>
       </div>
