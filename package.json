@@ -10,11 +10,8 @@
     "@rails/webpacker": "4.3.0",
     "bootstrap": "4.6",
     "jquery": "^3.6.0",
-<<<<<<< HEAD
     "mapbox-gl": "^2.4.1",
-=======
     "places.js": "^1.19.0",
->>>>>>> master
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0"
   },
