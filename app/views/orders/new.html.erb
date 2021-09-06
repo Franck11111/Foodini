@@ -21,37 +21,34 @@
               <div class="card-body">
                 <div class="nested-fields" %>
                   <div data-controller='checkbox-select-all'>
-                    <div id="category_area_input" data-category-area="<%= @cuisine_area_to_categories.to_json %>"
-                    <%# data-select-all-target="checkboxes"> %> %>
+                    <div id="category_area_input" data-category-area="<%= @cuisine_area_to_categories.to_json %>" %>
                       <%= f.input :food_category_ids, as: :check_boxes,
                         collection: @cuisine_areas, label_method: :cuisine_area,
                         input_html: { class: "cuisine-pick-form ", data: { target_checkbox_select_all: 'checkbox' } },
                         wrapper_html: { class: "cuisine-pick-container" },
                         :label => "Select preferred Cuisines (at least one)",
-                        include_hidden: false, checked: true
+                        include_hidden: false, value: '1'
                       %>
-                      </div>
-                      </div>
-                        <div class="selectors_cuisine">
-                        <label>
-                          <input  label_method: :cuisine_area type="checkbox" id="select_all" data-checkbox-select-all-target="checkboxAll" />
-                          <span>Select All / Deselect All</span>
-                        </label>
-                      </div>
-                    <div id="category_type_input">
-                    <%= f.input :food_category_ids, as: :check_boxes,
-                      collection: @food_types,
-                      label_method: :food_type,
-                      input_html: { class: "cuisine-pick-form " },
-                      wrapper_html: { class: "cuisine-pick-container" },
-                      :label => "Preferred Food Types",
-                      include_hidden: false
-                    %>
+                    </div>
                   </div>
+                  <div class="class="cuisine-pick-container">
+                    <input type="checkbox" class="cuisine-pick-form" id="select_all" data-checkbox-select-all-target="checkboxAll" />
+                    <label>Select All / Deselect All</label>
                 </div>
+                <div id="category_type_input">
+                <%= f.input :food_category_ids, as: :check_boxes,
+                  collection: @food_types,
+                  label_method: :food_type,
+                  input_html: { class: "cuisine-pick-form " },
+                  wrapper_html: { class: "cuisine-pick-container" },
+                  :label => "Preferred Food Types",
+                  include_hidden: false
+                %>
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
           <div class="card">
             <div class="card-header" id="headingTwo">

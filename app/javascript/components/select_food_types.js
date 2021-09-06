@@ -43,7 +43,7 @@ const selectFoodCategories = (categories) => {
     let value = event.currentTarget.checked
     categories.forEach((input) => input.checked = value)
   })
-  selectFoodCategories(inputs);
+
 }
 
 export{selectFoodTypes}
