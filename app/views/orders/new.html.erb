@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="text-center font-weight-bold">Order details</h1>
-  <h2 class="text-center">Please fill in your personal information</h2>
+  <h3 class="text-center">Fill in a few criteria to make sure you get the most appropriate meal.</h3>
 
   <%= simple_form_for(@order) do |f| %>
     <%= f.error_notification %>
@@ -101,13 +101,8 @@
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
               <div class="card-body">
                 <div class="nested-fields">
-<<<<<<< HEAD
-                  <%= f.input :budget, required: true, placeholder: '€' %>
-                  <%= f.input :delivery_time, required: true, placeholder: 'min.' %>
-=======
                   <%= f.input :budget, required: true, collection: 15..100, placeholder: '€', hint: "Required field"%>
                   <%= f.input :delivery_time, required: true, collection: 15..120, placeholder: 'min.', hint: "Required field"%>
->>>>>>> master
                 </div>
               </div>
             </div>
