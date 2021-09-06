@@ -1,5 +1,5 @@
 <div class="nested-fields container">
-  <%= f.input :address %>
+  <%= f.input :address, input_html: {value:Order.find(params[:order_id]).address} %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :email %>

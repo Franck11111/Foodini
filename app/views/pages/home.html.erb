@@ -1,13 +1,12 @@
 <div class="header" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1543352634-99a5d50ae78e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80);">
-  <div class="header-container text-center">
-    <h1> Hungry? </h1>
-    <h2> Order serendipitous meals from the best restaurants around. </h2><br>
+  <div class="header-container">
+    <h1 class="text-center"> Hungry?  </h1>
+    <h2 class="text-center"> Order serendipitous meals from the best restaurants around. </h2><br>
     <div class="searchbar-container">
-      <%= form_for :query, url: new_order_path, method: :get do |f| %>
-      <%= f.text_field :search, id: :search %>
-      <%= f.submit %>
+      <%= form_tag new_order_path, method: :get do %>
+      <%= text_field_tag :search, params[:search], id: "search" %>
+      <div class="text-center"><%= submit_tag "Order", class:"btn btn-flat-landing mt-5" %></div>
       <% end %>
-
     </div>
   </div>
 </div>
