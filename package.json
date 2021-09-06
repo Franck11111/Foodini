@@ -2,6 +2,7 @@
   "name": "Foodini2",
   "private": true,
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^4.7.3",
     "@nathanvda/cocoon": "^1.2.14",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
@@ -9,6 +10,7 @@
     "@rails/webpacker": "4.3.0",
     "bootstrap": "4.6",
     "jquery": "^3.6.0",
+    "mapbox-gl": "^2.4.1",
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0"
   },
