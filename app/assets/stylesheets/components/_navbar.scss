@@ -17,7 +17,7 @@
 }
 
 .navbar-brand h4:hover {
-color: $red-food-dark;
+  color: $red-food-dark;
 }
 
 .navbar .navbar-collapse {
@@ -55,8 +55,8 @@ color: $red-food-dark;
 
 .image_logo:hover {
   cursor: default;
-  transform: rotate(360deg);
-  transition: all 0.5s ease-in-out 0s;
+  transform: rotateY(180deg);
+  transition: all 1s ease-in-out 0s;
 }
 
 .navbar-sections {
@@ -81,4 +81,9 @@ color: $red-food-dark;
 
 .navbar-sections p {
   margin-bottom: 0px;
+}
+
+#navbarDropdown {
+  cursor: pointer;
+  margin-left: 120px;
 }

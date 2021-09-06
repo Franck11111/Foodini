@@ -1,2 +1,70 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "show";
+
+.cards-orders {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  flex-grow: 1;
+}
+
+.card-order {
+  width: 310px;
+  height: 230px;
+  margin-top: 25px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+  color: black;
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.issued-on {
+  color : darkgray;
+  margin-top: 3px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 11px;
+  font-size: 12px;
+}
+
+.full-order {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 15px;
+  margin-top: 0px;
+}
+
+.order-detail {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 15px;
+}
+
+.meal-name {
+  padding-top: 0px;
+  margin: 0px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  font-size: 15px;
+}
+
+.order-desc {
+  margin-top: 2px;
+  margin-left: 2px;
+  margin-bottom: 0px;
+  font-size: 11px;
+}
+
+.make-review {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
