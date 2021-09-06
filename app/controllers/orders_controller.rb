@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  def index
+    @orders = Order.where(user: current_user)
+  end
+
   def show
     @order = current_user.orders.find(params[:id])
   end
@@ -44,8 +48,8 @@ class OrdersController < ApplicationController
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
-        name: "name",
-        description: "description",
+        name: "Option chosen: #{@order.option_category}",
+        description: "Number of meals: #{@order.number_of_meals}",
         amount: @order.amount_cents,
         currency: 'eur',
         quantity: 1

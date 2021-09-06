@@ -1,18 +1,52 @@
+// styling to be used in forms on order/new
 .cuisine-pick-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
+//overwriting bootstrap checkboxes padding
 .cuisine-pick-container .form-check {
 padding: 0px;
 }
-
+// styling cuisine pick
 .cuisine-pick-form {
   position:absolute;
   transform: scale(0);
   }
 
 .cuisine-pick-form + label {
+  cursor: pointer;
+  color: white;
+  padding: 15px 24px;
+  margin: 5px;
+  border-radius: 6px;
+  border-style: double;
+  background-color: #f0bc48;
+  border-color: #efb83c;
+}
+
+.cuisine-pick-form:hover + label {
+  border-color: #DA0404;
+}
+.cuisine-pick-form:checked + label {
+  color: white;
+  padding: 15px 24px;
+  border-radius: 6px;
+    border-style: double;
+  background-color: #FF4848;
+  border-color: #DA0404;
+}
+
+.option-container {
+  display:inline-flex;
+  justify-content: space-evenly;
+}
+
+.pick-option-radio {
+  position: absolute;
+  transform: scale(0);
+}
+.pick-option-radio + label{
   cursor: pointer;
   color: white;
   padding: 20px 24px;
@@ -22,18 +56,11 @@ padding: 0px;
   background-color: #f0bc48;
   border-color: #efb83c;
 }
-
-
-.cuisine-pick-form:hover + label {
-  color: white;
-  padding: 20px 24px;
-  border-radius: 6px;
-    border-style: double;
-  background-color: #f0bc48;
+.pick-option-radio:hover + label {
   border-color: #DA0404;
 }
-.cuisine-pick-form:checked + label {
-  color: white;
+.pick-option-radio:checked + label {
+    color: white;
   padding: 20px 24px;
   border-radius: 6px;
     border-style: double;

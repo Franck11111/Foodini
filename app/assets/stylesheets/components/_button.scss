@@ -37,3 +37,18 @@ div.btn-create-order {
   //   line-height: 1.5;
   //   border-radius: 2px;
 }
+
+.btn-flat-dashboard {
+  color: white;
+  padding: 4px 12px;
+  border-radius: 25px;
+  background: $red-food;
+  transition: background 0.3s ease;
+  font-size: 12px;
+}
+
+.btn-flat-dashboard:hover {
+  color: white;
+  background: #fd5c5c;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+}
