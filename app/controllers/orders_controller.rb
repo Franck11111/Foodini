@@ -5,6 +5,21 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_user.orders.find(params[:id])
+    # the `geocoded` scope filters only restaurants with coordinates (latitude & longitude)
+    @restaurant_array = []
+    @restaurants = @order.meals.each do |meal|
+      element_restaurant = meal.restaurant
+      @restaurant_array << element_restaurant.id
+    end
+    @restaurants_markers = Restaurant.where(id: @restaurant_array)
+    @markers = @restaurants_markers.geocoded.map do |restaurant|
+        {
+          lat: restaurant.latitude,
+          lng: restaurant.longitude,
+          # to pass more info about our boardgames in our view
+          info_window: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
+        }
+    end
   end
 
   def new

@@ -7,9 +7,11 @@
 </div>
 
 <div class="cards-orders">
-    <% @orders.each do |order| %>
+    <% @orders.reverse.each do |order| %>
       <div class="card-order">
-        <img src="https://cdn.tasteatlas.com//images/dishes/ad3ef1fb39eb42958e7462961951e45c.jpg?w=905&h=510" class="image-background">
+        <% order.meals.each do |meal| %>
+          <img src="<%= meal.image %>" class="image-background">
+        <% end %>
         <p class="issued-on"><%= order.created_at.to_date %></p>
         <div class="full-order">
           <div class="order-detail">
@@ -22,6 +24,7 @@
             <p class="order-desc"><strong>Option chosen: </strong><%= order.option_category %></p>
           </div>
           <div class="make-review">
+            <p class="order-price"><%= humanized_money_with_symbol order.amount %></p>
             <%= link_to 'Leave a review', 'orders/new', class: "btn btn-flat-dashboard" %>
           </div>
         </div>
