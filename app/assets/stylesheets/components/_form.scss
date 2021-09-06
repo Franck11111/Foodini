@@ -37,6 +37,24 @@ padding: 0px;
   border-color: #DA0404;
 }
 
+// sellect all styling
+
+
+
+.selector_cuisine + label {
+  cursor: pointer;
+  color: white;
+  padding: 15px 24px;
+  margin: 5px;
+  border-radius: 6px;
+  border-style: double;
+  background-color: #f0bc48;
+  border-color: #efb83c;
+}
+
+
+
+// option settings
 .option-container {
   display:inline-flex;
   justify-content: space-evenly;
