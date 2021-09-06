@@ -55,7 +55,7 @@
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
               <div class="card-body">
                 <div class="nested-fields">
-          <%= f.input :number_of_meals, collection: 1..10, default: 1 %>
+          <%= f.input :number_of_meals, collection: 1..10, default: 1, hint: "Required field" %>
                 </div>
               </div>
             </div>
@@ -75,8 +75,8 @@
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
               <div class="card-body">
                 <div class="nested-fields">
-                  <%= f.input :budget, required: true, collection: 15..100, placeholder: '€' %>
-                  <%= f.input :delivery_time, required: true, collection: 15..120, placeholder: 'min.' %>
+                  <%= f.input :budget, required: true, collection: 15..100, placeholder: '€', hint: "Required field"%>
+                  <%= f.input :delivery_time, required: true, collection: 15..120, placeholder: 'min.', hint: "Required field"%>
                 </div>
               </div>
             </div>

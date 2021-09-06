@@ -81,7 +81,7 @@ end
   p restaurant_2
 end
 10.times do
-  restaurant_3 = Restaurant.create(name: Faker::Restaurant.name, address: "Witte de Withstraat#{rand(10..300)}, Amsterdam, Netherlands")
+  restaurant_3 = Restaurant.create(name: Faker::Restaurant.name, address: "Witte de Withstraat #{rand(10..300)}, Amsterdam, Netherlands")
   p restaurant_3
 end
 
