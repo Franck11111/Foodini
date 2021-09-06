@@ -52,3 +52,27 @@ div.btn-create-order {
   background: #fd5c5c;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
 }
+
+// buttons for links in headling of form
+.btn-link {
+  font-weight: 400;
+  color: $red-food !important;
+  text-decoration: none;
+}
+
+
+.btn-link:hover {
+  color: #65c5a6;
+  text-decoration: underline;
+}
+
+
+.btn-link:focus, .btn-link.focus {
+  text-decoration: underline;
+}
+
+
+.btn-link:disabled, .btn-link.disabled {
+  color: #6c757d;
+  pointer-events: none;
+}
