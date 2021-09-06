@@ -33,13 +33,18 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { selectFoodTypes } from '../components/select_food_types';
 //import navbar
 import { initUpdateNavbarOnScroll } from "../components/navbar";
+//import nextpage
+import { submitOnChange } from "../components/next_page";
+//import geomap
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from "../plugins/init_autocomplete";
 
-document.addEventListener("turbolinks:load", () => {
-  // Call your JS functions here
-  initUpdateNavbarOnScroll();
-  initMapbox();
+document.addEventListener('turbolinks:load', () => {
+  // Call your functions here, e.g:
+  // initSelect2();
   selectFoodTypes();
+  initUpdateNavbarOnScroll();
+  submitOnChange();
+  initMapbox();
   initAutocomplete();
 });
