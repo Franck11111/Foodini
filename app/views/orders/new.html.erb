@@ -7,6 +7,12 @@
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
       <div id="accordion">
         <div class="form-inputs">
+        <%= f.input :address, input_html: {value: params[:search], hidden: true}, label: false %>
+
+          <%= f.simple_fields_for @order_ingredient do |p|%>s
+            <%= render 'order_ingredients_fields', f: p %>
+          <% end %>
+
           <div class="card">
             <div class="card-header" id="headingOne">
               <h3 class="mb-0">

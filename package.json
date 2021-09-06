@@ -9,6 +9,7 @@
     "@rails/webpacker": "4.3.0",
     "bootstrap": "4.6",
     "jquery": "^3.6.0",
+    "places.js": "^1.19.0",
     "popper.js": "^1.16.1",
     "stimulus": "^2.0.0",
     "stimulus-checkbox-select-all": "^4.0.0",

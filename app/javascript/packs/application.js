@@ -35,14 +35,17 @@ import { toggle } from '../components/select_food_categories_boxes.js';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  selectFoodTypes();
+
 
 });
 
 //import navbar
 import { initUpdateNavbarOnScroll } from "../components/navbar";
+import { initAutocomplete } from "../plugins/init_autocomplete";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
+  selectFoodTypes();
+  initAutocomplete();
 });
