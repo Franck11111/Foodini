@@ -26,6 +26,7 @@ require("@nathanvda/cocoon")
 
 // External imports
 import "bootstrap";
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -34,6 +35,9 @@ import { selectFoodTypes } from '../components/select_food_types';
 import { initUpdateNavbarOnScroll } from "../components/navbar";
 //import nextpage
 import { submitOnChange } from "../components/next_page";
+//import geomap
+import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from "../plugins/init_autocomplete";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -41,4 +45,6 @@ document.addEventListener('turbolinks:load', () => {
   selectFoodTypes();
   initUpdateNavbarOnScroll();
   submitOnChange();
+  initMapbox();
+  initAutocomplete();
 });

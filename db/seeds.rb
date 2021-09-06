@@ -73,15 +73,15 @@ end
 puts "Creating 30 restaurants"
 
 10.times do
- restaurant_1 = Restaurant.create(name: Faker::Restaurant.name, address: "Amstelveenseweg #{rand(100..800)}, Amsterdam, Netherlands")
+ restaurant_1 = Restaurant.create(name: Faker::Restaurant.name, address: "Valkenburgerstraat 223D, Amsterdam, Netherlands")
  p restaurant_1
 end
 10.times do
-  restaurant_2 = Restaurant.create(name: Faker::Restaurant.name, address: "Albert Cuypstraat #{rand(20..300)}, Amsterdam, Netherlands")
+  restaurant_2 = Restaurant.create(name: Faker::Restaurant.name, address: "Watertorenplein 6, Amsterdam, Netherlands")
   p restaurant_2
 end
 10.times do
-  restaurant_3 = Restaurant.create(name: Faker::Restaurant.name, address: "Witte de Withstraat #{rand(10..300)}, Amsterdam, Netherlands")
+  restaurant_3 = Restaurant.create(name: Faker::Restaurant.name, address: "Lange Leidsedwarsstraat 108, Amsterdam, Netherlands")
   p restaurant_3
 end
 

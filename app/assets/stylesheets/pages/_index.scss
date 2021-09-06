@@ -66,5 +66,11 @@
 .make-review {
   display: flex;
   flex-direction: column;
-  padding-top: 30px;
+}
+
+.order-price {
+  font-size: 15px;
+  text-align: right;
+  margin-bottom: 8px;
+  margin-right: 2px;
 }
