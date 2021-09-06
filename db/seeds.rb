@@ -14,9 +14,13 @@ require 'faker'
 # 0. Cleaning database
 puts "Cleaning database..."
   #first destroy child
+  MealsIngredient.destroy_all
+  OrderIngredient.destroy_all
   Ingredient.destroy_all
   FoodCategoryMeal.destroy_all
+  FoodCategoryOrder.destroy_all
   FoodCategory.destroy_all
+  OrderMeal.destroy_all
   Meal.destroy_all
   Restaurant.destroy_all
   Order.destroy_all
@@ -66,12 +70,20 @@ cuisine_area_hash['meals'].each do |area|
 end
 
 # 5. Creating restaurants
-puts "Creating 5 restaurants"
-Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.street_address)
-Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.street_address)
-Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.street_address)
-Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.street_address)
-Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.street_address)
+puts "Creating 30 restaurants"
+
+10.times do
+ restaurant_1 = Restaurant.create(name: Faker::Restaurant.name, address: "Amstelveenseweg #{rand(100..800)}, Amsterdam, Netherlands")
+ p restaurant_1
+end
+10.times do
+  restaurant_2 = Restaurant.create(name: Faker::Restaurant.name, address: "Albert Cuypstraat #{rand(20..300)}, Amsterdam, Netherlands")
+  p restaurant_2
+end
+10.times do
+  restaurant_3 = Restaurant.create(name: Faker::Restaurant.name, address: "Witte de Withstraat#{rand(10..300)}, Amsterdam, Netherlands")
+  p restaurant_3
+end
 
 # 6. Creating meals
 cuisine_area_array = cuisine_area_hash['meals'].map { |area| area['strArea'] }
@@ -87,7 +99,7 @@ cuisine_area_array.each do |area|
 
   # 6.1 Create meals
   meals_list_hash['meals'].each do |meal_from_api_hash|
-    meal = Meal.new(name: meal_from_api_hash['strMeal'], description: Faker::Food.description, price: rand(15..40), restaurant: Restaurant.all.sample)
+    meal = Meal.new(name: meal_from_api_hash['strMeal'], description: Faker::Food.description, price: rand(15..40), restaurant: Restaurant.all.sample, image: meal_from_api_hash['strMealThumb'])
     api_meal_id = meal_from_api_hash['idMeal']
     complete_meal_url = URI.open("https://www.themealdb.com/api/json/v1/1/lookup.php?i=#{api_meal_id}").read
     complete_meal_hash = JSON.parse(complete_meal_url)
