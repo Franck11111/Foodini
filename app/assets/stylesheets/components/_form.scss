@@ -23,22 +23,24 @@ padding: 0px;
   cursor: pointer;
   color: white;
   padding: 15px 24px;
-  margin: 0px 2px 5px 2px;
+  margin: 0px 3px 5px 3px;
+  box-shadow:  2px 2px 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
-  border-style: double;
+  border-style:solid;
+  text-shadow: 1px 1px 2px black;
   background-color: #f0bc48;
   border-color: #efb83c;
 }
 
 .cuisine-pick-form:hover + label {
-  border-color: #DA0404;
+  border-color: $red-food-dark;
     background-color: #FF4848;
 }
 .cuisine-pick-form:checked + label {
   color: white;
   padding: 15px 24px;
   border-radius: 6px;
-    border-style: double;
+  border-style: solid;
 
   border-color: $red-food;
 }
@@ -48,8 +50,8 @@ padding: 0px;
   justify-content: center;
 }
 
-.no-padding {
-    padding: 0px !important;
+.no-padding-left {
+    padding: 0px 5px !important;
 }
 
 // option settings

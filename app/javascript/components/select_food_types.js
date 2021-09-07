@@ -33,9 +33,14 @@ const selectFoodCategories = (categories) => {
   select_button.addEventListener("click", (event) => {
     let value = event.currentTarget.checked
     categories.forEach((input) => input.checked = value)
+    if (select_button.checked){
+      document.querySelector("#select_all_label").innerText = "Clear selection";
+    }else {
+      document.querySelector("#select_all_label").innerText = "Select all";
+    }
   })
-
 }
+
 const show_food_area = (array_ids, type_wrapper) => {
   type_wrapper.querySelectorAll("input").forEach((div) => {
     if (array_ids.includes(+div.value)){

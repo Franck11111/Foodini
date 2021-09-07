@@ -22,15 +22,15 @@
             <div class="card-body">
               <div class="nested-fields">
                 <div data-controller='checkbox-select-all'>
-                  <div id="category_area_input" data-category-area="<%= @cuisine_area_to_categories.to_json %>">
                     <h5>Pick your preffered cuisines</h5>
                     <h6>Choose all avaiable cuisines or pick your favourite to start</h6>
-                    <div class="form-check flex no-padding">
-                      <input type="checkbox" id="select_all" class="cuisine-pick-form form-check-input check_boxes optional"   data-checkbox-select-all-target="checkboxAll" />
-                      <label class="form-check-label collection_check_boxes  center" autocomplete="no-selected" for="select_all">
-                        <span class='selected'>Clear Selection</span>
+                  <div class="form-check flex no-padding-left">
+                      <input type="checkbox" id="select_all" class="cuisine-pick-form form-check-input check_boxes optional" data-checkbox-select-all-target="checkboxAll" />
+                      <label class="form-check-label collection_check_boxes center" for="select_all">
+                        <span id='select_all_label'>Select all</span>
                       </label>
                     </div>
+                  <div id="category_area_input" data-category-area="<%= @cuisine_area_to_categories.to_json %>">
                     <%= f.input :food_category_ids, as: :check_boxes,
                       collection: @cuisine_areas, label_method: :cuisine_area,
                       input_html: { class: "cuisine-pick-form ", data: { target_checkbox_select_all: 'checkbox' } },
