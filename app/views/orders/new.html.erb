@@ -23,10 +23,13 @@
               <div class="nested-fields">
                 <div data-controller='checkbox-select-all'>
                   <div id="category_area_input" data-category-area="<%= @cuisine_area_to_categories.to_json %>">
-                    <H4>Pick your preffered cuisines</H4>
-                    <div class="flex no-padding">
-                      <input type="checkbox" id="select_all" class="cuisine-pick-form form-check-input check_boxes optional" data-checkbox-select-all-target="checkboxAll" />
-                      <label class="form-check-label collection_check_boxes " for="select_all"><span>Deselect</span> All</label>
+                    <h5>Pick your preffered cuisines</h5>
+                    <h6>Choose all avaiable cuisines or pick your favourite to start</h6>
+                    <div class="form-check flex no-padding">
+                      <input type="checkbox" id="select_all" class="cuisine-pick-form form-check-input check_boxes optional"   data-checkbox-select-all-target="checkboxAll" />
+                      <label class="form-check-label collection_check_boxes  center" autocomplete="no-selected" for="select_all">
+                        <span class='selected'>Clear Selection</span>
+                      </label>
                     </div>
                     <%= f.input :food_category_ids, as: :check_boxes,
                       collection: @cuisine_areas, label_method: :cuisine_area,
@@ -64,9 +67,11 @@
           <div id="collapseTwo" class="btn-link collapsed" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
               <div class="nested-fields">
-                <%= f.simple_fields_for @order_ingredient do |p|%>
-                  <%= render 'order_ingredients_fields', f: p %>
-                <% end %>
+                <div class="">
+                  <%= f.simple_fields_for @order_ingredient do |p|%>
+                    <%= render 'order_ingredients_fields', f: p %>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
