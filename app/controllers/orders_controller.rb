@@ -59,22 +59,25 @@ class OrdersController < ApplicationController
       end
       @order.amount = meal_price
       @order.save
+      if params[:order][:option_category] == "I am feeling cautious"
+        redirect_to order_path(@order)
+      else
+        session = Stripe::Checkout::Session.create(
+          payment_method_types: ['card'],
+          line_items: [{
+            name: "Option chosen: #{@order.option_category}",
+            description: "Number of meals: #{@order.number_of_meals}",
+            amount: @order.amount_cents,
+            currency: 'eur',
+            quantity: 1
+          }],
+          success_url: order_url(@order),
+          cancel_url: order_url(@order)
+        )
 
-    session = Stripe::Checkout::Session.create(
-      payment_method_types: ['card'],
-      line_items: [{
-        name: "Option chosen: #{@order.option_category}",
-        description: "Number of meals: #{@order.number_of_meals}",
-        amount: @order.amount_cents,
-        currency: 'eur',
-        quantity: 1
-      }],
-      success_url: order_url(@order),
-      cancel_url: order_url(@order)
-    )
-
-      @order.update(checkout_session_id: session.id)
-      redirect_to new_order_payment_path(@order), notice: 'Order was successfully created.'
+        @order.update(checkout_session_id: session.id)
+        redirect_to new_order_payment_path(@order), notice: 'Order was successfully created.'
+      end
     else
       render :new
     end
