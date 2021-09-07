@@ -13,6 +13,7 @@ class PaymentsController < ApplicationController
     @payment = Payment.new(payment_params)
     @payment.order = @order
     if @payment.save
+      @order.update(option_category: 'I am feeling lucky')
       redirect_to order_path(@order)
     else
       render :new

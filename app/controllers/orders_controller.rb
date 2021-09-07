@@ -74,7 +74,11 @@ class OrdersController < ApplicationController
     )
 
       @order.update(checkout_session_id: session.id)
-      redirect_to new_order_payment_path(@order), notice: 'Order was successfully created.'
+      if @order.option_category == 'I am feeling lucky'
+        redirect_to new_order_payment_path(@order)
+      else
+        redirect_to order_path(@order)
+      end
     else
       render :new
     end
