@@ -43,12 +43,14 @@ padding: 0px;
   border-color: $red-food;
 }
 
-.form-check{
+.form-check {
   display:flex;
   justify-content: center;
-  padding: 0px !important;
 }
 
+.no-padding {
+    padding: 0px !important;
+}
 
 // option settings
 .option-container {

@@ -24,7 +24,7 @@
                 <div data-controller='checkbox-select-all'>
                   <div id="category_area_input" data-category-area="<%= @cuisine_area_to_categories.to_json %>">
                     <H4>Pick your preffered cuisines</H4>
-                    <div class="form-check">
+                    <div class="flex no-padding">
                       <input type="checkbox" id="select_all" class="cuisine-pick-form form-check-input check_boxes optional" data-checkbox-select-all-target="checkboxAll" />
                       <label class="form-check-label collection_check_boxes " for="select_all"><span>Deselect</span> All</label>
                     </div>
@@ -100,8 +100,13 @@
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
             <div class="card-body">
               <div class="nested-fields">
-                <%= f.input :budget, required: true, placeholder: '€', hint: 'Required field' %>
-                <%= f.input :delivery_time, required: true, placeholder: 'min.', hint: 'Required field' %>
+                <div class="row">
+                  <div class="col">
+                    <%= f.input :budget, required: true, placeholder: '€', hint: 'Required field' %>
+                  </div>
+                  <div class="col">
+                    <%= f.input :delivery_time, required: true, placeholder: 'min.', hint: 'Required field' %>
+                  </div>
               </div>
             </div>
           </div>
