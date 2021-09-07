@@ -34,7 +34,7 @@
         <div class="checkout-detail">
           <ul class="list-unstyled">
             <li><strong>Restaurant<br></strong> <% @order.meals.each do |meal| %>
-              <% meal.restaurant.name %>
+              <%= meal.restaurant.name %>
             <% end %></li>
             <li><strong>Cuisine<br></strong> <% @order.meals.each do |meal| %>
               <% meal.food_categories.each do |food_category| %>
