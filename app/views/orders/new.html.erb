@@ -100,8 +100,8 @@
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
             <div class="card-body">
               <div class="nested-fields">
-                <%= f.input :budget, required: true, placeholder: '€' %>
-                <%= f.input :delivery_time, required: true, placeholder: 'min.' %>
+                <%= f.input :budget, required: true, placeholder: '€', hint: 'Required field' %>
+                <%= f.input :delivery_time, required: true, placeholder: 'min.', hint: 'Required field' %>
               </div>
             </div>
           </div>
