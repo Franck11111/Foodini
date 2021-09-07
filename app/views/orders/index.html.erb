@@ -21,7 +21,11 @@
             <p class="order-desc"><% order.meals.each do |meal| %>
               <strong>Restaurant: </strong><%= meal.restaurant.name %>
             <% end %></p>
-            <p class="order-desc"><strong>Option chosen: </strong><%= order.option_category %></p>
+            <p class="order-desc"><strong>Cuisine: </strong><% order.meals.each do |meal| %>
+              <% meal.food_categories.each do |food_category| %>
+                <%= food_category.cuisine_area %>
+              <% end %>
+            <% end %></p>
           </div>
           <div class="make-review">
             <p class="order-price"><%= humanized_money_with_symbol order.amount %></p>
