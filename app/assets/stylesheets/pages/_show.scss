@@ -35,7 +35,7 @@
 }
 
 .issued-on-checkout {
-  color : rgb(105, 104, 104);
+  color: rgb(105, 104, 104);
   margin-top: 3px;
   font-size: 16px;
 }
@@ -55,7 +55,7 @@
 }
 
 .list-unstyled li {
-  border-color:rgb(105, 104, 104);
+  border-color: rgb(105, 104, 104);
 }
 
 .checkout-price {
@@ -77,22 +77,13 @@
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
 }
 
-.mapboxgl-popup {
-  max-width: 200px;
-}
-
-.mapboxgl-popup-content {
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.timing-my-orders{
+.timing-my-orders {
   display: inline-flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.timing-my-orders p{
+.timing-my-orders p {
   padding: 0px;
   margin: 0px;
   font-size: 18px;

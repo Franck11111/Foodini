@@ -17,7 +17,8 @@ class OrdersController < ApplicationController
           lat: restaurant.latitude,
           lng: restaurant.longitude,
           # to pass more info about our boardgames in our view
-          info_window: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
+          info_window: render_to_string(partial: "info_window", locals: { restaurant: restaurant }),
+          image_url: helpers.asset_url('restaurant.svg')
         }
     end
   end
