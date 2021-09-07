@@ -28,13 +28,13 @@
                     input_html: { class: "cuisine-pick-form ", data: { target_checkbox_select_all: 'checkbox' } },
                     wrapper_html: { class: "cuisine-pick-container" },
                     :label => "Select preferred Cuisines (at least one)",
-                    include_hidden: false, checked: true
+                    include_hidden: false
                   %>
                 </div>
               </div>
               <div class="cuisine-pick-container" id="select_all">
-                <input type="checkbox" value="Select All / Deselect All" class="cuisine-pick-form"  data-checkbox-select-all-target="checkboxAll" />
-              <label for="select_all">Select all</label>
+                <input type="checkbox" class="cuisine-pick-form" data-checkbox-select-all-target="checkboxAll" />
+              <label>Select All / Deselect All</label>
               </div>
               <div id="category_type_input">
                 <%= f.input :food_category_ids, as: :check_boxes,
