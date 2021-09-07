@@ -35,7 +35,7 @@ const selectFoodCategories = (categories) => {
     categories.forEach((input) => input.checked = value)
     if (select_button.checked){
       document.querySelector("#select_all_label").innerText = "Clear selection";
-    }else {
+    } else {
       document.querySelector("#select_all_label").innerText = "Select all";
     }
   })

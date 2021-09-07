@@ -22,8 +22,11 @@ padding: 0px;
 .cuisine-pick-form + label {
   cursor: pointer;
   color: white;
+  text-align: center;
+  font-size: 1,5rem;
+  min-width: 140px;
   padding: 15px 24px;
-  margin: 0px 3px 5px 3px;
+  margin: 0px 5px 5px 5px;
   box-shadow:  2px 2px 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   border-style:solid;
@@ -41,7 +44,6 @@ padding: 0px;
   padding: 15px 24px;
   border-radius: 6px;
   border-style: solid;
-
   border-color: $red-food;
 }
 
@@ -50,8 +52,17 @@ padding: 0px;
   justify-content: center;
 }
 
+.selecting_all{
+min-width: 180px;
+text-align: center;
+}
+
+.sellecting_field{
+width: 50%;
+}
+
 .no-padding-left {
-    padding: 0px 5px !important;
+  padding: 0px 5px !important;
 }
 
 // option settings
