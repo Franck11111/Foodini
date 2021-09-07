@@ -32,14 +32,15 @@ padding: 0px;
 
 .cuisine-pick-form:hover + label {
   border-color: #DA0404;
+    background-color: #FF4848;
 }
 .cuisine-pick-form:checked + label {
   color: white;
   padding: 15px 24px;
   border-radius: 6px;
     border-style: double;
-  background-color: #FF4848;
-  border-color: #DA0404;
+
+  border-color: $red-food;
 }
 
 .form-check{

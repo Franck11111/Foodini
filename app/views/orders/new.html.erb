@@ -26,7 +26,7 @@
                     <H4>Pick your preffered cuisines</H4>
                     <div class="form-check">
                       <input type="checkbox" id="select_all" class="cuisine-pick-form form-check-input check_boxes optional" data-checkbox-select-all-target="checkboxAll" />
-                      <label class="form-check-label collection_check_boxes " for="select_all">Select All / Deselect All</label>
+                      <label class="form-check-label collection_check_boxes " for="select_all"><span>Deselect</span> All</label>
                     </div>
                     <%= f.input :food_category_ids, as: :check_boxes,
                       collection: @cuisine_areas, label_method: :cuisine_area,
@@ -61,7 +61,7 @@
               </button>
             </h3>
           </div>
-          <div id="collapseTwo" class="btn btn-link collapsed" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div id="collapseTwo" class="btn-link collapsed" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
               <div class="nested-fields">
                 <%= f.simple_fields_for @order_ingredient do |p|%>
