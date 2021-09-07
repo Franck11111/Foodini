@@ -5,6 +5,7 @@ const selectFoodTypes = () => {
     const type_wrapper = document.querySelector("#category_type_input");
     const area_to_category = JSON.parse(area_wrapper.dataset.categoryArea)
     const inputs = area_wrapper.querySelectorAll("input")
+    inputs.forEach((input) => (input.checked = "checked"));
     inputs.forEach((input)  => {
       input.addEventListener("click",(event) => {
         let name = "order[food_categories][]";
@@ -40,7 +41,9 @@ const show_food_area = (array_ids, type_wrapper) => {
 const selectFoodCategories = (categories) => {
   let select_button = document.querySelector("#select_all");
   select_button.addEventListener("click", (event) => {
+    console.log(event)
     let value = event.currentTarget.checked
+    console.log(value)
     categories.forEach((input) => input.checked = value)
   })
 

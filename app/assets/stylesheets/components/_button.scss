@@ -62,7 +62,7 @@ div.btn-create-order {
 
 .btn-link:hover {
   color: #65c5a6;
-  text-decoration: underline;
+  text-decoration: none !important;
 }
 
 .btn-link:focus, .btn-link.focus {
