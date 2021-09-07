@@ -41,11 +41,8 @@
                 <%= food_category.cuisine_area %>
               <% end %>
             <% end %></li>
-            <li><strong>Option chosen<br></strong> <%= @order.option_category %></li>
+            <li><strong>Total paid<br></strong> <%= humanized_money_with_symbol @order.amount %></li>
           </ul>
-          <div class="checkout-price">
-            <strong>TOTAL:</strong> <%= humanized_money_with_symbol @order.amount %>
-          </div>
         </div>
       </div>
     </div>
@@ -59,11 +56,7 @@
       <p>Estimated delivery in <strong><%= @order.delivery_time %> minutes.</strong> Bon appétit!</p>
       <%= link_to 'View my orders', orders_path, class: "btn btn-flat" %>
     <% else %>
-      <%= link_to 'Reject and try again', order_path(@order), class: "btn btn-flat" %>
-      <div class="cautious-choices">
-        <%= link_to 'I am feeling lucky', new_order_payment_path(@order), class: "btn btn-flat" %>
-        <p>We decide the meal for you. Bare in mind you won’t get the chance to change meal and will discover it only after payment.</p>
-      </div>
+      <%= link_to 'Reject and try again', order_path(@order), method: :patch, class: "btn btn-flat" %>
       <%= link_to 'Accept and go to payment', new_order_payment_path(@order), class: "btn btn-flat" %>
     <% end %>
   </div>
