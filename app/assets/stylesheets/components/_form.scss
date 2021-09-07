@@ -8,6 +8,11 @@
 .cuisine-pick-container .form-check {
 padding: 0px;
 }
+.card-header {
+  padding: 0.15rem !important;
+}
+
+
 // styling cuisine pick
 .cuisine-pick-form {
   position:absolute;
@@ -17,42 +22,48 @@ padding: 0px;
 .cuisine-pick-form + label {
   cursor: pointer;
   color: white;
+  text-align: center;
+  font-size: 1,5rem;
+  min-width: 140px;
   padding: 15px 24px;
-  margin: 5px;
+  margin: 0px 5px 5px 5px;
+  box-shadow:  2px 2px 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
-  border-style: double;
+  border-style:solid;
+  text-shadow: 1px 1px 2px black;
   background-color: #f0bc48;
   border-color: #efb83c;
 }
 
 .cuisine-pick-form:hover + label {
-  border-color: #DA0404;
+  border-color: $red-food-dark;
+    background-color: #FF4848;
 }
 .cuisine-pick-form:checked + label {
   color: white;
   padding: 15px 24px;
   border-radius: 6px;
-    border-style: double;
-  background-color: #FF4848;
-  border-color: #DA0404;
+  border-style: solid;
+  border-color: $red-food;
 }
 
-// sellect all styling
-
-
-
-.selector_cuisine + label {
-  cursor: pointer;
-  color: white;
-  padding: 15px 24px;
-  margin: 5px;
-  border-radius: 6px;
-  border-style: double;
-  background-color: #f0bc48;
-  border-color: #efb83c;
+.form-check {
+  display:flex;
+  justify-content: center;
 }
 
+.selecting_all{
+min-width: 180px;
+text-align: center;
+}
 
+.sellecting_field{
+width: 50%;
+}
+
+.no-padding-left {
+  padding: 0px 5px !important;
+}
 
 // option settings
 .option-container {
