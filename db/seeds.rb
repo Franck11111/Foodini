@@ -31,6 +31,8 @@ puts "Creating users..."
 
 User.create([{ email: "indira@lewagon.com", password: "Greg123", password_confirmation: "Greg123",
 first_name: "Indira", last_name: "Vh", address: "Brussels Central" }])
+User.create([{ email: "franck@gmail.com", password: "Franck123", password_confirmation: "Franck123",
+first_name: "Franck", last_name: "Dirat", address: "Wielingenstraat 30k" }])
 
 # 2. Creating orders
 puts "Creating 5 orders"
