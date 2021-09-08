@@ -59,7 +59,20 @@ class OrdersController < ApplicationController
       end
       @order.amount = meal_price
       @order.save
+      session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: "Option chosen: #{@order.option_category}",
+        description: "Number of meals: #{@order.number_of_meals}",
+        amount: @order.amount_cents,
+        currency: 'eur',
+        quantity: 1
+      }],
+      success_url: payment_made_url(@order),
+      cancel_url: order_url(@order)
+    )
 
+      @order.update(checkout_session_id: session.id)
 
       if @order.option_category == 'I am feeling lucky'
         redirect_to new_order_payment_path(@order)
