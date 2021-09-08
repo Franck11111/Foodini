@@ -1,19 +1,19 @@
 // Specific CSS for your home-page
-.cards-container-landing {
-  width: 100%;
-  margin: auto;
-  display: block;
-}
+// .cards-container-landing {
+//   width: 100%;
+//   margin: auto;
+//   display: block;
+// }
 
-.cards-container-landing h2 {
-  display: block;
-  font-size: 35px;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.83em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-}
+// .cards-container-landing h2 {
+//   display: block;
+//   font-size: 35px;
+//   margin-block-start: 3.83em;
+//   margin-block-end: 0.83em;
+//   margin-inline-start: 0px;
+//   margin-inline-end: 0px;
+//   font-weight: bold;
+// }
 
 .cards-landing {
   display: flex;
@@ -26,13 +26,42 @@
 }
 
 #container-how-landing {
-  padding-top: 25px;
+  padding-top: 40px;
 }
 
 #container-how-landing h2 {
-  color: white;
-  margin-top: 0px;
+  color: black;
+  margin-top: 65px;
   margin-bottom: 0px;
+  padding: 30px 0 8px;
+  position: relative;
+}
+
+#container-how-landing h2::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 210px;
+  height: 14px;
+  transform: skew(-12deg) translateX(-50%);
+  background: rgba(255, 211, 113, 0.61);
+  z-index: 0;
+}
+
+.testimonial h2 {
+  position: relative;
+}
+.testimonial h2::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 210px;
+  height: 14px;
+  transform: skew(-12deg) translateX(-50%);
+  background: rgba(255, 211, 113, 0.61);
+  z-index: 0;
 }
 
 .cards-landing h4 {
@@ -43,8 +72,8 @@
   margin-inline-end: 0px;
   font-weight: bold;
   font-size: 20px;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  margin-top: 9px;
+  margin-bottom: 31px;
 }
 
 .cards-landing p {
@@ -54,40 +83,95 @@
 
 #container-who-landing {
   display: flex;
-  justify-content: space-around;
-  display: grid;
-  grid-template-columns: 440px 440px;
-  flex-grow: 1;
-  grid-gap: 10px;
+  // display: grid;
+  // grid-template-columns: 440px 440px;
+  // flex-grow: 1;
+  // grid-gap: 10px;
+  margin-top: -250px;
+  display: flex;
+  flex-direction: column;
+  z-index: 300;
+  position: relative;
 }
 
-#container-text-landing h4 {
+#container-text-landing {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.container-text-landing-1 {
+  border-radius: 91% 50% 50% 70%/57% 50% 88% 82%;
+  background: #78f8a9;
+  width: 503px;
+  height: 180px;
+  position: relative;
+}
+
+.container-text-landing-2 {
+  border-radius: 91% 50% 50% 70%/57% 50% 88% 82%;
+  background: #78f8a9;
+  width: 503px;
+  height: 180px;
+  position: relative;
+}
+
+.container-text-landing-1 h4 {
   display: block;
-  margin-block-start: 1.33em;
-  margin-block-end: 1.33em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+  //   margin-block-start: 1.33em;
+  //   margin-block-end: 1.33em;
+  //   margin-inline-start: 0px;
+  //   margin-inline-end: 0px;
   font-size: 18px;
-  margin-top: 15px;
-  margin-bottom: 10px;
-  line-height: 1.6;
+  //   margin-top: 84px;
+  //   margin-bottom: 12px;
+  //   line-height: 1.6;
+  position: absolute;
+  bottom: 61px;
+}
+
+.container-text-landing-2 h4 {
+  display: block;
+  //   margin-block-start: 1.33em;
+  //   margin-block-end: 1.33em;
+  //   margin-inline-start: 0px;
+  //   margin-inline-end: 0px;
+  font-size: 18px;
+  //   margin-top: 84px;
+  //   margin-bottom: 12px;
+  //   line-height: 1.6;
+  position: absolute;
+  bottom: 31px;
 }
 
 .container-image-landing {
-  display: flex;
-  justify-content: center;
-  margin-left: 40px;
-  height: 300px;
+  //   display: flex;
+  //   justify-content: center;
+  // margin-left: 40px;
+  // height: 300px;
+  padding: 6px;
 }
 
 .image-who {
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
 }
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 
 #container-reviews-landing {
   padding-top: 25px;
@@ -123,7 +207,7 @@
 }
 
 .meal-delivered {
-  color : $red-food-dark;
+  color: $red-food-dark;
   margin-top: 3px;
   margin-bottom: 0px;
   margin-right: 0px;
