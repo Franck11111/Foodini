@@ -23,7 +23,7 @@
   <% if @order.option_category == 'I am feeling lucky' %>
     <div class="main-checkout row">
       <%= render "show_lucky" %>
-      <div class="row d-block d-sm-none">
+      <div class="row d-block d-sm-none text-center">
         <%= render "show_buttons" %>
       </div>
       <div id="map" class="col-12 col-sm-5"
@@ -31,13 +31,13 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-    <div class="row d-none d-md-block">
+    <div class="row d-none d-md-block text-center">
       <%= render "show_buttons" %>
     </div>
   <% else %>
     <div class="main-checkout">
       <%= render "show_cautious" %>
-      <div class="row d-block d-sm-none">
+      <div class="row d-block d-sm-none text-center">
         <%= render "show_buttons" %>
       </div>
       <div id="map" class="col-12 col-sm-5"
@@ -45,7 +45,7 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-    <div class="row d-none d-md-block">
+    <div class="row d-none d-md-block text-center">
       <%= render "show_buttons" %>
     </div>
   <% end %>
