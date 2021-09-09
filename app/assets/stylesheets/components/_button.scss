@@ -9,7 +9,7 @@
 .btn-flat:hover {
   color: white;
   background: #fd5c5c;
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .btn-flat-landing {
@@ -21,10 +21,26 @@
   font-size: 17px;
 }
 
+.btn-flat-search {
+  color: white;
+  padding: 6px 31px;
+  border-radius: 40px;
+  background: $red-food;
+  transition: background 0.3s ease;
+  font-size: 17px;
+  top: -19px;
+}
+
+.btn-flat-search:hover {
+  color: white;
+  background: #fd5c5c;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+}
+
 .btn-flat-landing:hover {
   color: white;
   background: #fd5c5c;
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 div.btn-create-order {
@@ -51,7 +67,7 @@ div.btn-create-order {
 .btn-flat-dashboard:hover {
   color: white;
   background: #fd5c5c;
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 // buttons for links in headling of form
@@ -66,11 +82,13 @@ div.btn-create-order {
   text-decoration: none !important;
 }
 
-.btn-link:focus, .btn-link.focus {
+.btn-link:focus,
+.btn-link.focus {
   text-decoration: underline;
 }
 
-.btn-link:disabled, .btn-link.disabled {
+.btn-link:disabled,
+.btn-link.disabled {
   color: #6c757d;
   pointer-events: none;
 }

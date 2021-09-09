@@ -25,6 +25,10 @@ body {
   padding-top: 50px;
   position: relative;
   background-color: white;
+  // background-image: url("<%= asset_path('cork-board.png') %>");
+  // background-attachment: fixed;
+  // background-size: cover;
+  background: repeat url("memphis-mini.png");
 }
 
 .main-container {
