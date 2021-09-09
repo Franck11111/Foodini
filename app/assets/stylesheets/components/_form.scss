@@ -14,6 +14,36 @@
   padding: 0.15rem !important;
 }
 
+// // background styles
+// .picture-pan {
+//   background-image: url(https://www.pikpng.com/pngl/b/378-3788574_fry-pan-cooking-food-clipart.png);
+//   background-size: auto 70%;
+
+//   background-position:right 100%;
+//   background-repeat: no-repeat;
+//   // background-attachment: fixed;
+// }
+
+.pan-picture {
+    position: absolute;
+    top: 25vh;
+    right: -9vw;
+    z-index: 10;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+
+}
+
+.z10{
+  z-index: 10;
+}
+.z20{
+  z-index: 20;
+}
+.z30{
+  z-index: 30;
+}
+
 // styling cuisine pick
 .cuisine-pick-form {
   position:absolute;
@@ -33,6 +63,7 @@
   border-style:solid;
   background-color: $yellow-food;
   border-color: $yellow-food-dark;
+  z-index: 20;
 }
 
 .cuisine-pick-form:hover + label {
@@ -68,7 +99,7 @@
 }
 
 .sellecting_field {
-  width: 100%;
+  width: 60%;
 }
 
 .sellecting_field label {
@@ -83,6 +114,7 @@
 .option-container {
   display:inline-flex;
   justify-content: space-evenly;
+
 }
 
 .pick-option-radio {
@@ -99,6 +131,7 @@
   border-style: double;
   background-color: $yellow-food;
   border-color: $yellow-food-dark;
+  z-index: 20;
 }
 .pick-option-radio:hover + label {
   color: white;
