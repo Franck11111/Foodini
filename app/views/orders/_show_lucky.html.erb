@@ -1,0 +1,33 @@
+<div class="card-checkout collapse col-12 col-sm-5" id="collapseExample">
+  <div class="container-image-checkout">
+    <% @order.meals.each do |meal| %>
+      <img src="<%= meal.image %>" class="image-background-checkout">
+    <% end %>
+  </div>
+  <div class="full-checkout">
+    <p class="issued-on-checkout"><%= @order.created_at.to_date %></p>
+    <div class="checkout-main">
+      <h2><strong><% @order.meals.each do |meal| %>
+          <%= meal.name %>
+        <% end %></strong>
+      </h2>
+      <p><% @order.meals.each do |meal| %>
+          <%= meal.description %>
+        <% end %>
+      </p>
+    </div>
+    <div class="checkout-detail">
+      <ul class="list-unstyled">
+        <li><strong>Restaurant<br></strong> <% @order.meals.each do |meal| %>
+          <%= meal.restaurant.name %>
+        <% end %></li>
+        <li><strong>Cuisine<br></strong> <% @order.meals.each do |meal| %>
+          <% meal.food_categories.each do |food_category| %>
+            <%= food_category.cuisine_area %>
+          <% end %>
+        <% end %></li>
+        <li><strong>Total paid<br></strong> <%= humanized_money_with_symbol @order.amount %></li>
+      </ul>
+    </div>
+  </div>
+</div>
