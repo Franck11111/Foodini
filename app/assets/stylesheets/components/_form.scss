@@ -16,9 +16,9 @@
 
 // styling cuisine pick
 .cuisine-pick-form {
-  position:absolute;
+  position: absolute;
   transform: scale(0);
-  }
+}
 
 .cuisine-pick-form + label {
   cursor: pointer;
@@ -28,41 +28,43 @@
   min-width: 140px;
   padding: 12px 24px;
   margin: 0px 5px 5px 5px;
-  box-shadow:  2px 2px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.04);
   border-radius: 25px;
-  border-style:solid;
-  background-color: $yellow-food;
-  border-color: $yellow-food-dark;
+  border: solid 1px black;
+  // background-color: $yellow-food;
 }
 
 .cuisine-pick-form:hover + label {
-  color: white;
-  background-color: $red-food;
-  border-color: $red-food-dark;
+  color: black;
+  // background-color: $red-food;
+  // border-color: $red-food;
+  border: solid 1px $red-food;
 }
 .cuisine-pick-form:checked + label {
-  color: white;
-  font-size: 15px;
+  color: black;
+  font-size: 14px;
   border-radius: 25px;
-  border-style: solid;
-  background-color: $red-food;
-  border-color: $red-food-dark;
+  // border-style: solid;
+  // background-color: $red-food;
+  // border-color: $red-food;
+  border: solid 3px $red-food;
 }
 
 #select_all + label {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 #select_all:checked + label {
-  border-color: $red-food-dark;
+  border: solid 2px $red-food;
+  background-color: $red-food;
 }
 
 .form-check {
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
-.selecting_all{
+.selecting_all {
   min-width: 180px;
   text-align: center;
 }
@@ -81,7 +83,7 @@
 
 // option settings
 .option-container {
-  display:inline-flex;
+  display: inline-flex;
   justify-content: space-evenly;
 }
 
@@ -89,16 +91,17 @@
   position: absolute;
   transform: scale(0);
 }
-.pick-option-radio + label{
+.pick-option-radio + label {
   cursor: pointer;
   color: black;
   padding: 15px 24px;
   font-size: 15px;
   margin: 5px;
   border-radius: 25px;
-  border-style: double;
-  background-color: $yellow-food;
-  border-color: $yellow-food-dark;
+  border: solid 1px black;
+  // border-style: double;
+  // background-color: $yellow-food;
+  // border-color: black;
 }
 .pick-option-radio:hover + label {
   color: white;
