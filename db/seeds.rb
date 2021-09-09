@@ -101,7 +101,7 @@ cuisine_area_array.each do |area|
 
   # 6.1 Create meals
   meals_list_hash['meals'].each do |meal_from_api_hash|
-    meal = Meal.new(name: meal_from_api_hash['strMeal'], description: Faker::Food.description, price: rand(15..40), restaurant: Restaurant.all.sample, image: meal_from_api_hash['strMealThumb'])
+    meal = Meal.new(name: meal_from_api_hash['strMeal'], description: Faker::Food.description, price: rand(15..19), restaurant: Restaurant.all.sample, image: meal_from_api_hash['strMealThumb'])
     api_meal_id = meal_from_api_hash['idMeal']
     complete_meal_url = URI.open("https://www.themealdb.com/api/json/v1/1/lookup.php?i=#{api_meal_id}").read
     complete_meal_hash = JSON.parse(complete_meal_url)

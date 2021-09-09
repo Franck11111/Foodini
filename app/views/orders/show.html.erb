@@ -7,57 +7,46 @@
     <% end %>
   </div>
   <% if @order.option_category == 'I am feeling lucky' %>
-    <h1 class="text-center">Thank you, <%= @order.user.first_name %>, here is what you got!</h1>
+    <h1 class="text-center">Thank you for your order <%= @order.user.first_name %>!</h1>
   <% else %>
     <h1 class="text-center">Here is what you got! Happy?</h1>
   <% end %>
 
-  <div class="main-checkout">
-    <div class="card-checkout">
-      <div class="container-image-checkout">
-        <% @order.meals.each do |meal| %>
-          <img src="<%= meal.image %>" class="image-background-checkout">
-        <% end %>
+  <% if @order.option_category == 'I am feeling lucky' %>
+    <p class="text-center mt-4">
+      <a class="btn btn-flat-landing" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Reveal your meal
+      </a>
+    </p>
+  <% end %>
+
+  <% if @order.option_category == 'I am feeling lucky' %>
+    <div class="main-checkout row">
+      <%= render "show_lucky" %>
+      <div class="row d-block d-sm-none">
+        <%= render "show_buttons" %>
       </div>
-      <div class="full-checkout">
-        <p class="issued-on-checkout"><%= @order.created_at.to_date %></p>
-        <div class="checkout-main">
-          <h2><strong><% @order.meals.each do |meal| %>
-              <%= meal.name %>
-            <% end %></strong>
-          </h2>
-          <p><% @order.meals.each do |meal| %>
-              <%= meal.description %>
-            <% end %>
-          </p>
-        </div>
-        <div class="checkout-detail">
-          <ul class="list-unstyled">
-            <li><strong>Restaurant<br></strong> <% @order.meals.each do |meal| %>
-              <%= meal.restaurant.name %>
-            <% end %></li>
-            <li><strong>Cuisine<br></strong> <% @order.meals.each do |meal| %>
-              <% meal.food_categories.each do |food_category| %>
-                <%= food_category.cuisine_area %>
-              <% end %>
-            <% end %></li>
-            <li><strong>Total paid<br></strong> <%= humanized_money_with_symbol @order.amount %></li>
-          </ul>
-        </div>
+      <div id="map" class="col-12 col-sm-5"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-    <div id="map"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class="row d-none d-md-block">
+      <%= render "show_buttons" %>
     </div>
-  </div>
-  <div class="timing-my-orders">
-    <% if @order.option_category == 'I am feeling lucky' %>
-      <p>Estimated delivery in <strong><%= @order.delivery_time %> minutes.</strong> Bon appétit!</p>
-      <%= link_to 'View my orders', orders_path, class: "btn btn-flat" %>
-    <% else %>
-      <%= link_to 'Reject and try again', order_path(@order), method: :patch, class: "btn btn-flat" %>
-      <%= link_to 'Accept and go to payment', new_order_payment_path(@order), class: "btn btn-flat" %>
-    <% end %>
-  </div>
+  <% else %>
+    <div class="main-checkout">
+      <%= render "show_cautious" %>
+      <div class="row d-block d-sm-none">
+        <%= render "show_buttons" %>
+      </div>
+      <div id="map" class="col-12 col-sm-5"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+    <div class="row d-none d-md-block">
+      <%= render "show_buttons" %>
+    </div>
+  <% end %>
 </div>
