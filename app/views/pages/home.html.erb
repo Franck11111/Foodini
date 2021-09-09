@@ -1,8 +1,8 @@
 <div>
   <div class="main-header" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1543352634-99a5d50ae78e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80);">
-    <div class="title-header">
-      <h1 class="text-center">foodini</h1>
-      <h2 class="text-center mb-4">Order serendipitous meals from the best restaurants around</h2><br>
+    <div class="title-header ">
+      <h1 class="text-center">Hungry?</h1>
+      <h2 class="text-center mb-4">Order serendipitous meals from the best restaurants</h2><br>
     </div>
     <div class="searchbar-header">
       <%= form_tag new_order_path, method: :get, class: 'form-inline justify-content-between' do %>
@@ -55,9 +55,44 @@
     </div>
   </div>
 
-  <div class="testimonial">
-   <h2 class="text-center"><strong>Testimonials</strong></h2>
+  <div class="testimonial" id="testimonial">
+   <div class="container testimonial-block">
+    <div class="intro-testimonial">
+      <h2 class="text-center"><strong>Testimonials</strong></h2>
+      <p class="text-center">Our customers love us! Read what they have to say below.</p>
+    </div>
+    <div class="row people">
+      <div class="col-md-6 col-lg-4 item">
+        <div class="box">
+            <p class="description">I have question: How come this app didn't exist before?!!</p>
+        </div>
+        <div class="author"><img class="rounded-circle" src="https://avatars.githubusercontent.com/u/30535027?v=4">
+            <h5 class="name">Greg</h5>
+            <p class="title">Boardgame master</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 item">
+        <div class="box">
+            <p class="description">I have to say I'm very impressed by this new concept!</p>
+        </div>
+        <div class="author"><img class="rounded-circle" src="https://avatars.githubusercontent.com/u/81511893?v=4">
+            <h5 class="name">Marco</h5>
+            <p class="title">Mr Eurotrip</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 item">
+        <div class="box">
+            <p class="description">Hey you guys should definitely try this out!</p>
+        </div>
+        <div class="author"><img class="rounded-circle" src="https://avatars.githubusercontent.com/u/87199265?v=4">
+            <h5 class="name">Indira</h5>
+            <p class="title">Wannabe software developer</p>
+        </div>
+      </div>
+    </div>
+    </div>
   </div>
+</div>
     <%# <div id="container-reviews-landing">
       <h2 class="text-center">What our customers say</h2>
       <div class="cards-review">
@@ -109,4 +144,3 @@
       </div>
     </div> %>
   <%# </div> %>
-</div>

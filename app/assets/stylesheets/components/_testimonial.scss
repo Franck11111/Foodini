@@ -1,0 +1,95 @@
+.testimonial h2 {
+  position: relative;
+  margin-bottom: 40px;
+  padding-top: 40px;
+}
+.testimonial h2::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 210px;
+  height: 14px;
+  transform: skew(-12deg) translateX(-50%);
+  background: rgba(255, 211, 113, 0.61);
+  z-index: 0;
+}
+
+@media (max-width: 767px) {
+  .testimonial h2 {
+    margin-bottom: 25px;
+    padding-top: 25px;
+    font-size: 24px;
+  }
+}
+
+.testimonial .intro-testimonial {
+  font-size: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.testimonial .intro-testimonial p {
+  margin-bottom: 0;
+}
+
+.testimonial .people {
+  padding: 50px 0 20px;
+}
+
+.testimonial .item {
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .testimonials-clean .item {
+    height: 220px;
+  }
+}
+
+.testimonial .item .box {
+  padding: 30px;
+  background-color: #fff;
+  position: relative;
+  box-shadow: -45px -45px 0px -42px #ff4848, 45px 45px 0 -42px #ff4848;
+}
+
+.testimonial .item .box:after {
+  content: "";
+  position: absolute;
+  left: 30px;
+  bottom: -24px;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-width: 12px 15px;
+  border-top-color: #fff;
+}
+
+.testimonial .item .author {
+  margin-top: 28px;
+  padding-left: 25px;
+}
+
+.testimonial .item .name {
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: inherit;
+}
+
+.testimonial .item .title {
+  font-size: 13px;
+  color: #9da9ae;
+}
+
+.testimonial .item .description {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.testimonial .item img {
+  max-width: 40px;
+  float: left;
+  margin-right: 12px;
+  margin-top: -5px;
+}
