@@ -49,8 +49,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.user = current_user
     @order.status = 'pending'
-    # @order.amount = @meal.price
-    # @meal = Meal.create!(name: "Pizza", description: "Pizza tomato and cheese", price: 15, restaurant_id: 1)
+
     if @order.save
       meals = @order.meals_proposition.first(@order.number_of_meals).map{|array| array.first}
       @order.meals << meals
@@ -60,28 +59,64 @@ class OrdersController < ApplicationController
       end
       @order.amount = meal_price
       @order.save
-      if params[:order][:option_category] == "I am feeling cautious"
-        redirect_to order_path(@order)
-      else
-        session = Stripe::Checkout::Session.create(
-          payment_method_types: ['card'],
-          line_items: [{
-            name: "Option chosen: #{@order.option_category}",
-            description: "Number of meals: #{@order.number_of_meals}",
-            amount: @order.amount_cents,
-            currency: 'eur',
-            quantity: 1
-          }],
-          success_url: order_url(@order),
-          cancel_url: order_url(@order)
-        )
+      session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: "Option chosen: #{@order.option_category}",
+        description: "Number of meals: #{@order.number_of_meals}",
+        amount: @order.amount_cents,
+        currency: 'eur',
+        quantity: 1
+      }],
+      success_url: payment_made_url(@order),
+      cancel_url: order_url(@order)
+    )
 
-        @order.update(checkout_session_id: session.id)
-        redirect_to new_order_payment_path(@order), notice: 'Order was successfully created.'
+      @order.update(checkout_session_id: session.id)
+
+      if @order.option_category == 'I am feeling lucky'
+        redirect_to new_order_payment_path(@order)
+      else
+        redirect_to order_path(@order)
       end
     else
       render :new
     end
+  end
+
+  def payment_made
+    @order = current_user.orders.find(params[:id])
+    @order.update(option_category: 'I am feeling lucky')
+    redirect_to order_path(@order)
+  end
+
+  def update
+    @order = current_user.orders.find(params[:id])
+    @order.meals = []
+    @order.save
+    meals = @order.meals_proposition.sample(@order.number_of_meals).map{|array| array.first}
+    @order.meals << meals
+    meal_price = 0
+    @order.meals.each do |meal|
+      meal_price += meal.price
+    end
+    @order.amount = meal_price
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: "Option chosen: #{@order.option_category}",
+        description: "Number of meals: #{@order.number_of_meals}",
+        amount: @order.amount_cents,
+        currency: 'eur',
+        quantity: 1
+      }],
+      success_url: payment_made_url(@order),
+      cancel_url: order_url(@order)
+    )
+
+    @order.update(checkout_session_id: session.id)
+    @order.save
+    redirect_to order_path(@order)
   end
 
   private

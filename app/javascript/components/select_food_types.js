@@ -20,13 +20,25 @@ const selectFoodTypes = () => {
         type_wrapper.querySelector("fieldset").classList.remove("d-none")
         selected_inputs.forEach((id) => {
           let food_types = area_to_category[id.value];
-          console.log(food_types)
               show_food_area(food_types, type_wrapper);
             });
           })
     })
     selectFoodCategories(inputs)
   }
+}
+
+const selectFoodCategories = (categories) => {
+  let select_button = document.querySelector("#select_all");
+  select_button.addEventListener("click", (event) => {
+    let value = event.currentTarget.checked
+    categories.forEach((input) => input.checked = value)
+    if (select_button.checked){
+      document.querySelector("#select_all_label").innerText = "Clear selection";
+    } else {
+      document.querySelector("#select_all_label").innerText = "Select all";
+    }
+  })
 }
 
 const show_food_area = (array_ids, type_wrapper) => {
@@ -37,13 +49,5 @@ const show_food_area = (array_ids, type_wrapper) => {
   });
 }
 
-const selectFoodCategories = (categories) => {
-  let select_button = document.querySelector("#select_all");
-  select_button.addEventListener("click", (event) => {
-    let value = event.currentTarget.checked
-    categories.forEach((input) => input.checked = value)
-  })
-
-}
 
 export{selectFoodTypes}
