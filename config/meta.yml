@@ -1,5 +1,5 @@
 meta_product_name: "Foodini"
 meta_title: "Foodini - Order serendipitous meals from the best restaurants"
 meta_description: "Foodini is a unique food delivery experience to make people discover new cuisines by ordering suprise meals."
-meta_image: "Foodini_cover.png" # should exist in `app/assets/images/`
+meta_image: "Foodini_fb_cover.jpg" # should exist in `app/assets/images/`
 twitter_account: "@Foodini8"   # required for Twitter Cards
