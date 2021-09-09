@@ -1,101 +1,112 @@
-<div class="header" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1543352634-99a5d50ae78e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80);">
-  <div class="header-container">
-    <h1 class="text-center">Hungry?</h1>
-    <h2 class="text-center mb-4">Order serendipitous meals from the best restaurants around.</h2><br>
-    <div class="searchbar-container">
-      <%= form_tag new_order_path, method: :get do %>
-      <%= text_field_tag :search, params[:search], id: "search" %>
-      <div class="text-center"><%= submit_tag "Order", class:"btn btn-flat-landing mt-3" %></div>
+<div>
+  <div class="main-header" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1543352634-99a5d50ae78e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80);">
+    <div class="title-header">
+      <h1 class="text-center">foodini</h1>
+      <h2 class="text-center mb-4">Order serendipitous meals from the best restaurants around</h2><br>
+    </div>
+    <div class="searchbar-header">
+      <%= form_tag new_order_path, method: :get, class: 'form-inline justify-content-between' do %>
+        <div class="search-bar-width">
+          <%= text_field_tag :search, params[:search], id: "search", placeholder: "Enter your address"%>
+        </div>
+        <div>
+          <%= submit_tag "Order", class:"btn btn-flat-search" %>
+        </div>
       <% end %>
     </div>
   </div>
-</div>
+  <%= image_tag "arc.png", class:'w-100 arc' %>
 
-<div class="cards-container-landing">
-<br>
+  <%# <div class="cards-container-landing"> %>
   <div id="container-who-landing">
     <div class="container-image-landing">
+        <h2 class="text-center our-story"> <strong>Our story</strong></h2>
       <%# <%= image_tag "Logofoodini-roulette.png", alt: "Foodini wheel", class: "image-who" %>
     </div>
     <div id="container-text-landing">
-      <h2 class="text-center">Who are we?</h2>
-      <h4 class="text-center">Foodini is a unique food delivery experience to make people discover new cuisines. Too often, people eat the same thing, don’t know what to cook and always end up ordering from the same places… Foodini is the exciting way of discovering new food by ordering suprise meals.<br> Sign up to learn more about us!</h4>
+      <div class="container-text-landing-1">
+        <h4 class="text-center text-wrap">Too often, people eat the <strong>same thing</strong>, don’t know what to cook and always end up ordering from the <strong>same places.</strong></h4>
+      </div>
+      <div class="container-text-landing-2">
+         <h4 class="text-center text-wrap">Foodini is a <strong>unique food delivery</strong> experience to make people discover <strong>new cuisines</strong>.<br><br><strong>Sign up</strong> to learn more about us!</h4>
+      </div>
     </div>
   </div>
-    <br>
-  <div id="container-how-landing" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1543352634-99a5d50ae78e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80);">
-    <h2 class="text-center">How it works</h2>
+
+  <div id="container-how-landing">
+    <h2 class="text-center"><strong>How it works</strong></h2>
     <div class="cards-landing">
       <div class="card-big">
         <img src="https://static.thenounproject.com/png/12638-200.png" alt>
-        <h4>① Enter your location</h4>
-        <p>Enter your street address or let us find your location.</p>
+        <h4>1. Enter your location</h4>
       </div>
       <div class="card-big">
         <img src="https://static.thenounproject.com/png/2850062-200.png" alt>
-        <h4>② Choose your maximum budget and waiting time</h4>
-        <p>Just fill in a few criteria to make sure you get the most appropriate meal.</p>
+        <h4>2. Choose budget & waiting time</h4>
       </div>
       <div class="card-big">
         <img src="https://static.thenounproject.com/png/1671260-200.png" alt>
-        <h4>③ Play the game</h4>
-        <p>It’s your call : Feeling lucky today? A random meal is chosen for you.</p><p> Feeling cautious? Get the chance to try again and get a meal that suits you better.</p>
+        <h4>3. Feeling lucky or feeling cautious?</h4>
       </div>
       <div class="card-big">
         <img src="https://static.thenounproject.com/png/1331980-200.png" alt>
-        <h4>④ Receive serendipitous meals from the best restaurants around</h4>
-        <p>Pay and get your serendipitous meal delivered at your doorsteps. Bon appétit!</p>
+        <h4>4. Be surprised & receive high qualitative meals</h4>
       </div>
     </div>
   </div>
-  <div id="container-reviews-landing">
-    <h2 class="text-center">What our customers say</h2>
-    <div class="cards-review">
-      <div class="card-review">
-        <img src="https://cdn.tasteatlas.com//images/dishes/eee2ad665ef54610b8aeb5a43ce74677.jpg?w=905&h=510" class="image-background">
-        <p class="meal-delivered">Korean: Bulgogi</p>
-        <div class="full-review">
-          <div class="text-review">
-            <h4 class="review-title">Oh Wow</h4>
-            <p class="review-content">I have to say I'm very impressed by this new concept!</p>
-          </div>
-          <div class="user-rating">
-            <h3 class="user-name">Marco</h3>
-            <h3 class="rating">&#11088;&#11088;&#11088;&#11088;&#11088;</h3>
-          </div>
-        </div>
-        <img src="https://avatars.githubusercontent.com/u/81511893?v=4" description="my face" class="profile">
-      </div>
-      <div class="card-review">
-        <img src="https://cdn.tasteatlas.com//images/dishes/ad3ef1fb39eb42958e7462961951e45c.jpg?w=905&h=510" class="image-background">
-        <p class="meal-delivered">Thai: Pad Thai</p>
-        <div class="full-review">
-          <div class="text-review">
-            <h4 class="review-title">Loved the experience</h4>
-            <p class="review-content">Hey you guys should definitely try this out!</p>
-          </div>
-          <div class="user-rating">
-            <h3 class="user-name">Indira</h3>
-            <h3 class="rating">&#11088;&#11088;&#11088;&#11088;&#11088;</h3>
-          </div>
-        </div>
-        <img src="https://avatars.githubusercontent.com/u/87199265?v=4" description="my face" class="profile">
-      </div>
-      <div class="card-review">
-        <img src="https://cdn.tasteatlas.com//Images/Dishes/bc0a3be4164b484ea01512c3ab6d4467.jpg?w=905&h=510" class="image-background">
-        <p class="meal-delivered">Egyptian: Kushari</p>
-        <div class="full-review">
-          <div class="text-review">
-            <h4 class="review-title">Thank you Foodini!</h4>
-            <p class="review-content">I have question: How come this app didn't exist before?!!</p>
-          </div>
-          <div class="user-rating">
-            <h3 class="user-name">Greg</h3>
-            <h3 class="rating">&#11088;&#11088;&#11088;&#11088;&#11088;</h3>
-          </div>
-        </div>
-        <img src="https://avatars.githubusercontent.com/u/30535027?v=4" description="my face" class="profile">
-      </div>
-    </div>
+
+  <div class="testimonial">
+   <h2 class="text-center"><strong>Testimonials</strong></h2>
   </div>
+    <%# <div id="container-reviews-landing">
+      <h2 class="text-center">What our customers say</h2>
+      <div class="cards-review">
+        <div class="card-review">
+          <img src="https://cdn.tasteatlas.com//images/dishes/eee2ad665ef54610b8aeb5a43ce74677.jpg?w=905&h=510" class="image-background">
+          <p class="meal-delivered">Korean: Bulgogi</p>
+          <div class="full-review">
+            <div class="text-review">
+              <h4 class="review-title">Oh Wow</h4>
+              <p class="review-content">I have to say I'm very impressed by this new concept!</p>
+            </div>
+            <div class="user-rating">
+              <h3 class="user-name">Marco</h3>
+              <h3 class="rating">&#11088;&#11088;&#11088;&#11088;&#11088;</h3>
+            </div>
+          </div>
+          <img src="https://avatars.githubusercontent.com/u/81511893?v=4" description="my face" class="profile">
+        </div>
+        <div class="card-review">
+          <img src="https://cdn.tasteatlas.com//images/dishes/ad3ef1fb39eb42958e7462961951e45c.jpg?w=905&h=510" class="image-background">
+          <p class="meal-delivered">Thai: Pad Thai</p>
+          <div class="full-review">
+            <div class="text-review">
+              <h4 class="review-title">Loved the experience</h4>
+              <p class="review-content">Hey you guys should definitely try this out!</p>
+            </div>
+            <div class="user-rating">
+              <h3 class="user-name">Indira</h3>
+              <h3 class="rating">&#11088;&#11088;&#11088;&#11088;&#11088;</h3>
+            </div>
+          </div>
+          <img src="https://avatars.githubusercontent.com/u/87199265?v=4" description="my face" class="profile">
+        </div>
+        <div class="card-review">
+          <img src="https://cdn.tasteatlas.com//Images/Dishes/bc0a3be4164b484ea01512c3ab6d4467.jpg?w=905&h=510" class="image-background">
+          <p class="meal-delivered">Egyptian: Kushari</p>
+          <div class="full-review">
+            <div class="text-review">
+              <h4 class="review-title">Thank you Foodini!</h4>
+              <p class="review-content">I have question: How come this app didn't exist before?!!</p>
+            </div>
+            <div class="user-rating">
+              <h3 class="user-name">Greg</h3>
+              <h3 class="rating">&#11088;&#11088;&#11088;&#11088;&#11088;</h3>
+            </div>
+          </div>
+          <img src="https://avatars.githubusercontent.com/u/30535027?v=4" description="my face" class="profile">
+        </div>
+      </div>
+    </div> %>
+  <%# </div> %>
 </div>
