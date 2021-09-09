@@ -49,21 +49,6 @@
   z-index: 0;
 }
 
-.testimonial h2 {
-  position: relative;
-}
-.testimonial h2::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -2px;
-  width: 210px;
-  height: 14px;
-  transform: skew(-12deg) translateX(-50%);
-  background: rgba(255, 211, 113, 0.61);
-  z-index: 0;
-}
-
 .cards-landing h4 {
   display: block;
   margin-block-start: 1.33em;
@@ -101,7 +86,7 @@
 
 .container-text-landing-1 {
   border-radius: 91% 50% 50% 70%/57% 50% 88% 82%;
-  background: #78f8a9;
+  background: #9cffc2;
   width: 503px;
   height: 180px;
   position: relative;
@@ -109,7 +94,7 @@
 
 .container-text-landing-2 {
   border-radius: 91% 50% 50% 70%/57% 50% 88% 82%;
-  background: #78f8a9;
+  background: #9cffc2;
   width: 503px;
   height: 180px;
   position: relative;
