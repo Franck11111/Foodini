@@ -25,10 +25,14 @@
     </div>
     <div id="container-text-landing">
       <div class="container-text-landing-1">
-        <h4 class="text-center text-wrap">Too often, people eat the <strong>same thing</strong>, don’t know what to cook and always end up ordering from the <strong>same places.</strong></h4>
+        <h4 class="text-center text-wrap">
+        Too often, people eat the <strong>same thing</strong>, don’t know what to cook and always end up ordering from the <strong>same places.</strong>
+        Foodini is a <strong>unique food delivery</strong> experience to make people discover <strong>new cuisines</strong>.<br><br><strong>Sign up</strong> to learn more about us!</h4>
+        </h4>
       </div>
       <div class="container-text-landing-2">
-         <h4 class="text-center text-wrap">Foodini is a <strong>unique food delivery</strong> experience to make people discover <strong>new cuisines</strong>.<br><br><strong>Sign up</strong> to learn more about us!</h4>
+         <%# <%= image_tag "meatballs.jpg", class: 'meatballs img-fluid rounded' %>
+         <%= image_tag "eating.svg", class: 'eating-picture' %>
       </div>
     </div>
   </div>
@@ -37,19 +41,23 @@
     <h2 class="text-center"><strong>How it works</strong></h2>
     <div class="cards-landing">
       <div class="card-big">
-        <img src="https://static.thenounproject.com/png/12638-200.png" alt>
+        <%# <img src="https://static.thenounproject.com/png/12638-200.png" alt> %>
+        <%= image_tag "location.png", class: 'landing-how-1' %>
         <h4>1. Enter your location</h4>
       </div>
       <div class="card-big">
-        <img src="https://static.thenounproject.com/png/2850062-200.png" alt>
+        <%# <img src="https://static.thenounproject.com/png/2850062-200.png" alt> %>
+        <%= image_tag "budget and waiting time.png", class: 'landing-how-2' %>
         <h4>2. Choose budget & waiting time</h4>
       </div>
       <div class="card-big">
-        <img src="https://static.thenounproject.com/png/1671260-200.png" alt>
+        <%# <img src="https://static.thenounproject.com/png/1671260-200.png" alt> %>
+        <%= image_tag "feeling lucky or feeling cautious.png", class: 'landing-how-3' %>
         <h4>3. Feeling lucky or feeling cautious?</h4>
       </div>
       <div class="card-big">
-        <img src="https://static.thenounproject.com/png/1331980-200.png" alt>
+        <%# <img src="https://static.thenounproject.com/png/1331980-200.png" alt> %>
+        <%= image_tag "be surprised.png", class: 'landing-how-4' %>
         <h4>4. Be surprised & receive high qualitative meals</h4>
       </div>
     </div>
@@ -59,7 +67,7 @@
    <div class="container testimonial-block">
     <div class="intro-testimonial">
       <h2 class="text-center"><strong>Testimonials</strong></h2>
-      <p class="text-center">Our customers love us! Read what they have to say below.</p>
+      <h4 class="text-center">Our customers love us! Read what they have to say below.</h4>
     </div>
     <div class="row people">
       <div class="col-md-6 col-lg-4 item">
