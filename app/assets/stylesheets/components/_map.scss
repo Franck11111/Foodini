@@ -13,3 +13,9 @@
     font-weight: 500;
   }
 }
+
+@media (orientation: portrait) {
+  #map{
+    height: 50vh !important;
+  }
+}
