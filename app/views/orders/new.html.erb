@@ -24,10 +24,10 @@
               <div class="row">
                 <div class="col-8">
                   <div class="card-body card-body-list div">
-                    <div class="nested-fields">
+                    <div class="nested-fields py-2">
                       <div data-controller='checkbox-select-all'>
                           <h6>Choose cuisines you'd like to discover</h6>
-                        <div class="form-check flex no-padding-left">
+                        <div class="form-check  flex no-padding-left">
                             <input type="checkbox" id="select_all" class="cuisine-pick-form form-check-input check_boxes optional" checked, data-checkbox-select-all-target="checkboxAll" />
                             <label class="form-check-label selecting_all collection_check_boxes" for="select_all">
                               <span id='select_all_label'>Select all</span>
@@ -64,14 +64,14 @@
           <div class="card">
             <div class="card-header z30" id="headingTwo">
               <h3 class="mb-0 z30">
-                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <strong>Personal preferences</strong>
                 </button>
               </h3>
             </div>
-            <div id="collapseTwo" class="btn-link collapsed" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
               <div class="card-body card-body-list">
-                <div class="nested-fields">
+                <div class="nested-fields py-2">
                   <div class="sellecting_field">
                     <%= f.simple_fields_for @order_ingredient do |p|%>
                       <%= render 'order_ingredients_fields', f: p %>
@@ -92,7 +92,7 @@
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
               <div class="card-body card-body-list">
-                <div class="nested-fields sellecting_field">
+                <div class="nested-fields py-2 sellecting_field">
                   <%= f.input :number_of_meals, collection: 1..10, default: 1 %>
                 </div>
               </div>
@@ -109,7 +109,7 @@
             </div>
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
               <div class="card-body card-body-list">
-                <div class="nested-fields">
+                <div class="nested-fields py-2">
                   <div class="row">
                     <div class="col">
                       <%= f.input :budget, required: true, placeholder: 'Fill in max. budget you want to spend (€)', hint: 'Required field' %>
@@ -132,10 +132,11 @@
             </div>
             <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
               <div class="card-body card-body-list">
-                <div class="nested-fields">
+                <div class="nested-fields py-2">
                   <%= f.input :option_category, as: :radio_buttons,
                     required: true, include_hidden: false,
                     wrapper_html: { class: "cuisine-pick-container" },
+                    :label => "",
                     # collection_wrapper_tag: 'div',
                     # item_wrapper_class: 'category-item',
                     input_html: {class: 'pick-option-radio selecting_all'},
