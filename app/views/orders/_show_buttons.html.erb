@@ -1,13 +1,13 @@
 <div class="timing-my-orders col-12 col-sm-5 text-center">
   <% if @order.option_category == 'I am feeling lucky' %>
     <div>
-      <p class="mb-4">Estimated delivery in <strong><%= @order.delivery_time %> minutes.</strong> Bon appétit!</p>
+      <p class="mb-2">Estimated delivery in no more than <strong style="font-weight: 700;"><%= @order.delivery_time %> minutes.</strong> Bon appétit!</p>
       <%= link_to 'View my orders', orders_path, class: "btn btn-flat" %>
     </div>
   <% else %>
   <div>
-      <%= link_to 'Reject and try again', order_path(@order), method: :patch, class: "btn btn-flat mt-5 mr-5" %>
-      <%= link_to 'Accept and go to payment', new_order_payment_path(@order), class: "btn btn-flat mt-5 ml-5" %>
+      <%= link_to 'Reject and try again', order_path(@order), method: :patch, class: "btn btn-flat mt-2 mr-5" %>
+      <%= link_to 'Accept and go to payment', new_order_payment_path(@order), class: "btn btn-flat mt-2 ml-5" %>
   </div>
   <% end %>
 </div>

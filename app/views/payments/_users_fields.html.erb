@@ -1,6 +1,19 @@
-<div class="nested-fields container">
-  <%= f.input :address, input_html: {value:Order.find(params[:order_id]).address} %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :email %>
+<div class="personal-details">
+    <h1 class="text-center font-weight-bold">Personal details</h1>
+
+    <div class="d-flex justify-content-center">
+      <div class="card" style="width: 35rem; margin-top: 2.25rem;">
+        <div class="nested-fields container">
+          <%= f.input :address, input_html: {value:Order.find(params[:order_id]).address}, wrapper_html: { class: "mt-3" } %>
+          <div class="form-row">
+            <%= f.input :first_name, wrapper_html: { class: "col-md-6" }%>
+            <%= f.input :last_name, wrapper_html: { class: "col-md-6" }%>
+          </div>
+          <%= f.input :email %>
+        </div>
+      </div>
+    </div>
+
+  <%= image_tag "delivery.svg", class: 'delivery-image' %>
+
 </div>

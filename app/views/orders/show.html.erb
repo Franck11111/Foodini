@@ -1,19 +1,19 @@
-<div class="container-checkout">
-  <div class="container">
     <% if @order.option_category == 'I am feeling lucky' %>
-      <h3>Order summary</h3>
+      <div class="mt-3 order-summary">
+        <h2 class="text-center lucky"><strong>Order summary</strong></h2>
+      </div>
     <% else %>
-      <h3>You chose: 'I am feeling cautious'</h3>
+      <h2 class="text-center cautious"><strong>I'm feeling <em>cautious</em></strong></h2>
     <% end %>
-  </div>
+<div class="container-checkout">
   <% if @order.option_category == 'I am feeling lucky' %>
-    <h1 class="text-center">Thank you for your order <%= @order.user.first_name %>!</h1>
+    <h3 class="text-center" style="margin-top: 8px;">Thank you for your order <%= @order.user.first_name %>!</h3>
   <% else %>
-    <h1 class="text-center">Here is what you got! Happy?</h1>
+    <h3 class="text-center" style="margin-top: 8px;">Here is what you got! Happy?</h3>
   <% end %>
 
   <% if @order.option_category == 'I am feeling lucky' %>
-    <p class="text-center mt-4">
+    <p class="text-center mt-2">
       <a class="btn btn-flat-landing" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
         Reveal your meal
       </a>

@@ -5,13 +5,15 @@
   // box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
   // padding: 20px;
-  // border: 1px solid $red-food;
+  // border: 7px solid #5ce892eb;
   // transition: 0.5s ease;
   // background-color: rgba(255, 255, 255, 0.8);
   margin-top: 20px;
-  margin-bottom: 20px;
-  background: #9cffc2;
-  border-radius: 40% 40% 50% 40%/30% 50% 50% 50%;
+  // margin-bottom: 20px;
+  background-color: #fff;
+  // border-radius: 40% 40% 50% 40%/30% 50% 50% 50%;
+  // border-radius: 15px;
+  box-shadow: -45px -45px 0px -42px #c2ffd9, 45px 45px 0 -42px #c2ffd9;
 }
 
 // .card-big:hover {
@@ -21,7 +23,8 @@
 // }
 
 .card-big img {
-  height: 80px;
+  height: 100px;
+  margin-top: 8px;
 }
 
 .card-sm {
@@ -36,10 +39,10 @@
   background-color: white;
 }
 
-.card-lucky-result{
-justify-content: center;
+.card-lucky-result {
+  justify-content: center;
 }
 
-.lucky-card-container{
+.lucky-card-container {
   justify-content: center;
 }
