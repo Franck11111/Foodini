@@ -5,7 +5,7 @@
       <h2 class="text-center mb-4">Order serendipitous meals from the best restaurants</h2><br>
     </div>
     <div class="searchbar-header">
-      <%= form_tag new_order_path, method: :get, class: 'form-inline justify-content-between' do %>
+      <%= form_tag new_order_path, method: :get, class: 'form-inline justify-content-center' do %>
         <div class="search-bar-width">
           <%= text_field_tag :search, params[:search], id: "search", placeholder: "Enter your address"%>
         </div>
