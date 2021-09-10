@@ -2,7 +2,7 @@
   <% if @orders.count==1 %>
         <h1 class="text-center">Your order</h1>
       <% else %>
-        <h1 class="text-center">Your previous orders</h1>
+        <h1 class="text-center"><strong>Your previous orders</strong></h1>
       <% end %>
 </div>
 
@@ -19,9 +19,9 @@
               <%= meal.name %>
             <% end %></h4>
             <p class="order-desc"><% order.meals.each do |meal| %>
-              <strong>Restaurant: </strong><%= meal.restaurant.name %>
+              <strong style="font-weight: 600;">Restaurant: </strong><%= meal.restaurant.name %>
             <% end %></p>
-            <p class="order-desc"><strong>Cuisine: </strong><% order.meals.each do |meal| %>
+            <p class="order-desc"><strong style="sfont-weight: 600;">Cuisine: </strong><% order.meals.each do |meal| %>
               <% meal.food_categories.each do |food_category| %>
                 <%= food_category.cuisine_area %>
               <% end %>

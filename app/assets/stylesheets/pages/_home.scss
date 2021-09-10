@@ -19,10 +19,11 @@
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
-  display: grid;
-  grid-template-columns: 400px 400px;
-  flex-grow: 1;
+  // display: grid;
+  // grid-template-columns: 400px 400px;
+  // flex-grow: 1;
   grid-gap: 20px;
+  padding: 22px;
 }
 
 #container-how-landing {
@@ -45,7 +46,7 @@
   width: 210px;
   height: 14px;
   transform: skew(-12deg) translateX(-50%);
-  background: rgba(255, 211, 113, 0.61);
+  background: rgba(120, 248, 169, 0.61);
   z-index: 0;
 }
 
@@ -57,13 +58,16 @@
   margin-inline-end: 0px;
   font-weight: bold;
   font-size: 20px;
-  margin-top: 9px;
-  margin-bottom: 31px;
+  margin-top: 0px;
+  margin-bottom: -13px;
+  padding: 9px;
 }
 
 .cards-landing p {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 13px;
+  text-align: justify;
+  margin: 15px;
 }
 
 #container-who-landing {
@@ -72,7 +76,7 @@
   // grid-template-columns: 440px 440px;
   // flex-grow: 1;
   // grid-gap: 10px;
-  margin-top: -250px;
+  margin-top: -143px;
   display: flex;
   flex-direction: column;
   z-index: 300;
@@ -82,19 +86,20 @@
 #container-text-landing {
   display: flex;
   justify-content: space-evenly;
+  position: relative;
 }
 
 .container-text-landing-1 {
-  border-radius: 91% 50% 50% 70%/57% 50% 88% 82%;
-  background: #9cffc2;
+  // border-radius: 91% 50% 50% 70%/57% 50% 88% 82%;
+  // background: #9cffc2;
   width: 503px;
   height: 180px;
   position: relative;
 }
 
 .container-text-landing-2 {
-  border-radius: 91% 50% 50% 70%/57% 50% 88% 82%;
-  background: #9cffc2;
+  // border-radius: 91% 50% 50% 70%/57% 50% 88% 82%;
+  // background: #9cffc2;
   width: 503px;
   height: 180px;
   position: relative;
@@ -111,7 +116,7 @@
   //   margin-bottom: 12px;
   //   line-height: 1.6;
   position: absolute;
-  bottom: 61px;
+  bottom: -50px;
 }
 
 .container-text-landing-2 h4 {
@@ -133,7 +138,7 @@
   //   justify-content: center;
   // margin-left: 40px;
   // height: 300px;
-  padding: 6px;
+  // padding: 6px;
 }
 
 .image-who {
@@ -260,4 +265,21 @@
 
 .rating {
   font-size: 10px;
+}
+
+// .meatballs {
+//   object-fit: cover;
+//   height: 313px;
+//   right: 121px;
+//   position: absolute;
+// }
+
+.eating-picture {
+  height: 255px;
+  right: 121px;
+  position: absolute;
+}
+
+.intro-testimonial p {
+  font-size: 18px;
 }

@@ -18,15 +18,15 @@
     </div>
     <div class="checkout-detail">
       <ul class="list-unstyled">
-        <li><strong>Restaurant<br></strong> <% @order.meals.each do |meal| %>
+        <li><strong style="font-weight: 600;">Restaurant<br></strong> <% @order.meals.each do |meal| %>
           <%= meal.restaurant.name %>
         <% end %></li>
-        <li><strong>Cuisine<br></strong> <% @order.meals.each do |meal| %>
+        <li><strong style="font-weight: 600;">Cuisine<br></strong> <% @order.meals.each do |meal| %>
           <% meal.food_categories.each do |food_category| %>
             <%= food_category.cuisine_area %>
           <% end %>
         <% end %></li>
-        <li><strong>Total paid<br></strong> <%= humanized_money_with_symbol @order.amount %></li>
+        <li><strong style="font-weight: 600;">Total paid<br></strong> <%= humanized_money_with_symbol @order.amount %></li>
       </ul>
     </div>
   </div>
