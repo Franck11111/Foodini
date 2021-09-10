@@ -23,6 +23,7 @@
   // grid-template-columns: 400px 400px;
   // flex-grow: 1;
   grid-gap: 20px;
+  padding: 22px;
 }
 
 #container-how-landing {
@@ -57,14 +58,16 @@
   margin-inline-end: 0px;
   font-weight: bold;
   font-size: 20px;
-  margin-top: 9px;
-  margin-bottom: 12px;
+  margin-top: 0px;
+  margin-bottom: -13px;
   padding: 9px;
 }
 
 .cards-landing p {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 13px;
+  text-align: justify;
+  margin: 15px;
 }
 
 #container-who-landing {
@@ -82,7 +85,7 @@
 
 #container-text-landing {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   position: relative;
 }
 

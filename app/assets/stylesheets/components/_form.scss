@@ -26,22 +26,21 @@
 // }
 
 .pan-picture {
-    position: absolute;
-    top: 15vh;
-    right: -9vw;
-    z-index: 10;
-    -webkit-filter: drop-shadow(5px 5px 5px #222);
-    filter: drop-shadow(5px 5px 5px #222);
-
+  position: absolute;
+  top: 15vh;
+  right: -9vw;
+  z-index: 10;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
 }
 
-.z10{
+.z10 {
   z-index: 10;
 }
-.z20{
+.z20 {
   z-index: 20;
 }
-.z30{
+.z30 {
   z-index: 30;
 }
 
@@ -83,7 +82,7 @@
 }
 
 #select_all + label {
-  font-weight: 800;
+  font-weight: 600;
 }
 
 #select_all:checked + label {
@@ -117,7 +116,6 @@
 .option-container {
   display: inline-flex;
   justify-content: space-evenly;
-
 }
 
 .pick-option-radio {
@@ -148,4 +146,50 @@
   border-style: double;
   background-color: $red-food;
   border-color: $red-food-dark;
+}
+
+.order-details h1 {
+  position: relative;
+  // margin-bottom: 40px;
+  // padding-top: 40px;
+}
+
+.order-details h1::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 1px;
+  width: 282px;
+  height: 14px;
+  transform: skew(-12deg) translateX(-50%);
+  background: rgba(120, 248, 169, 0.61);
+  z-index: 0;
+}
+
+.personal-details {
+  position: relative;
+}
+.personal-details h1 {
+  position: relative;
+  // margin-bottom: 40px;
+  // padding-top: 40px;
+}
+
+.personal-details h1::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 1px;
+  width: 280px;
+  height: 14px;
+  transform: skew(-12deg) translateX(-50%);
+  background: rgba(120, 248, 169, 0.61);
+  z-index: 0;
+}
+
+.delivery-image {
+  height: 200px;
+  position: absolute;
+  left: -154px;
+  top: 292px;
 }

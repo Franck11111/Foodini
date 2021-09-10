@@ -23,10 +23,11 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  background-color: white;
 }
 
 .issued-on {
-  color : darkgray;
+  color: darkgray;
   margin-top: 3px;
   margin-bottom: 0px;
   margin-right: 0px;
@@ -73,4 +74,22 @@
   text-align: right;
   margin-bottom: 8px;
   margin-right: 2px;
+}
+
+.title-orders h1 {
+  position: relative;
+  // margin-bottom: 40px;
+  // padding-top: 40px;
+}
+
+.title-orders h1::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 1px;
+  width: 370px;
+  height: 14px;
+  transform: skew(-12deg) translateX(-50%);
+  background: rgba(120, 248, 169, 0.61);
+  z-index: 0;
 }

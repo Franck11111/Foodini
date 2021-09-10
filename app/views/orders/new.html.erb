@@ -1,6 +1,6 @@
-  <div class="container">
+  <div class="container order-details">
     <h1 class="text-center font-weight-bold">Order details</h1>
-    <h3 class="text-center">Fill in a few criteria to make sure you get the most appropriate meal.</h3>
+    <h3 class="text-center">Fill in a few criteria to make sure you get the most appropriate meal</h3>
 
 
     <%= simple_form_for(@order) do |f| %>
@@ -26,7 +26,7 @@
                   <div class="card-body card-body-list div">
                     <div class="nested-fields py-2">
                       <div data-controller='checkbox-select-all'>
-                          <h6>Choose cuisines you'd like to discover</h6>
+                          <h6>Choose cuisines you would like to discover</h6>
                         <div class="form-check  flex no-padding-left">
                             <input type="checkbox" id="select_all" class="cuisine-pick-form form-check-input check_boxes optional" checked, data-checkbox-select-all-target="checkboxAll" />
                             <label class="form-check-label selecting_all collection_check_boxes" for="select_all">
@@ -44,7 +44,7 @@
                         </div>
                       </div>
                       <div id="category_type_input">
-                        <h6>Choose food types you'd like to discover</h6>
+                        <h6>Choose food types you would like to discover</h6>
                         <%= f.input :food_category_ids, as: :check_boxes,
                           collection: @food_types,
                           label_method: :food_type,
