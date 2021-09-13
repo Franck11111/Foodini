@@ -1,7 +1,7 @@
 # Foodini
 ## _Order serendipitous meals from the best restaurants around_
 
-[![N|Solid](https://www.foodini.me/assets/Logofoodini3-71060fa856c28bddd62383343b3e7a0cdb3b3096a82064fb6b4d9b6f4f2b53e6.png)](https://www.foodini.me/)
+[![N|Solid](https://res.cloudinary.com/wagon/image/upload/v1631203721/icwid3nycxjll4zugkzd.jpg](https://www.foodini.me/)
 
 Foodini is the most exciting way to discover new types of food through food delivery. Fill in a few criteria so that you get the most appropriate meal matching your mood of the day, and based on these criteria a random meal is chosen and delivered to your door.
 
