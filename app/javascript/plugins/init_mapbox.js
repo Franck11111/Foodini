@@ -28,6 +28,9 @@ const initMapbox = () => {
       //   .setPopup(popup) // sets a popup on this marker
       //   .addTo(map);
 
+      // Map resize to take all space
+      map.on('idle', function () { map.resize() });
+
       // Create a HTML element for your custom marker
       const element = document.createElement('div');
       element.className = 'marker';
