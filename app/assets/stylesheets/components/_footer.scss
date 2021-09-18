@@ -21,29 +21,15 @@
   margin-right: 20px;
 }
 
-.footer a {
-  color: $red-food;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  color: $red-food-dark;
-  text-decoration: none;
-}
-
 .footer-infos {
   display: inline-flex;
   align-items: center;
   text-align: right;
 }
 
-.footer-links {
-  font-size: 30px;
-  color: $red-food;
-}
-
-.footer p {
+.footer-texts a {
   color: $gray;
+  text-decoration: none;
   padding: 10px;
   display: inline-flex;
   align-items: center;
@@ -51,8 +37,14 @@
   margin-bottom: 0;
 }
 
-.footer p:hover {
-  color: black;
+.footer-links a {
+  color: $red-food;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.footer-links a:hover {
+  color: $red-food-dark;
   text-decoration: none;
 }
 
