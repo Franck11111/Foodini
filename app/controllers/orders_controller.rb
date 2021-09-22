@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.where(user: current_user)
+    @orders = Order.where(user: current_or_guest_user)
   end
 
   def show
-    @order = current_user.orders.find(params[:id])
+    @order = current_or_guest_user.orders.find(params[:id])
     # the `geocoded` scope filters only restaurants with coordinates (latitude & longitude)
     @restaurant_array = []
     @restaurants = @order.meals.each do |meal|
@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.user = current_user
+    @order.user = current_or_guest_user
     @order.status = 'pending'
 
     if @order.save
@@ -85,13 +85,13 @@ class OrdersController < ApplicationController
   end
 
   def payment_made
-    @order = current_user.orders.find(params[:id])
+    @order = current_or_guest_user.orders.find(params[:id])
     @order.update(option_category: 'I am feeling lucky')
     redirect_to order_path(@order)
   end
 
   def update
-    @order = current_user.orders.find(params[:id])
+    @order = current_or_guest_user.orders.find(params[:id])
     @order.meals = []
     @order.save
     meals = @order.meals_proposition.sample(@order.number_of_meals).map{|array| array.first}

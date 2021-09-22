@@ -29,6 +29,8 @@ puts "Cleaning database..."
 # 1. Creating users
 puts "Creating users..."
 
+User.create([{ email: "", password: "testtest", password_confirmation: "testtes",
+first_name: "Guest", last_name: "", address: "" }])
 User.create([{ email: "indira@lewagon.com", password: "Greg123", password_confirmation: "Greg123",
 first_name: "Indira", last_name: "Vh", address: "Brussels Central" }])
 User.create([{ email: "franck@gmail.com", password: "Franck123", password_confirmation: "Franck123",
@@ -37,7 +39,7 @@ first_name: "Franck", last_name: "Dirat", address: "Wielingenstraat 30k" }])
 # 2. Creating orders
 puts "Creating 5 orders"
 
-Order.create(option_category: 'Feeling lucky', delivery_time: rand(20..60), address: Faker::Address.street_address, budget: rand(15..40), number_of_meals: rand(1..10), status:'unconfirmed', user_id: 1)
+Order.create(option_category: 'Feeling lucky', delivery_time: rand(20..60), address: Faker::Address.street_address, budget: rand(15..40), number_of_meals: rand(1..10), status:'unconfirmed', user_id: 2)
 Order.create(option_category: 'Feeling cautious', delivery_time: rand(20..60), address:Faker::Address.street_address, budget: rand(15..40), number_of_meals: rand(1..10), status:'confirmed', user_id: 2)
 Order.create(option_category: 'Feeling lucky', delivery_time: rand(20..60), address:Faker::Address.street_address, budget: rand(15..40), number_of_meals: rand(1..10), status:'unconfirmed', user_id: 3)
 Order.create(option_category: 'Feeling cautious', delivery_time: rand(20..60), address:Faker::Address.street_address, budget: rand(15..40), number_of_meals: rand(1..10), status:'unconfirmed', user_id: 4)
