@@ -4,7 +4,7 @@ class PaymentsController < ApplicationController
   end
 
   def new
-    @order = current_user.orders.where(status: 'pending').find(params[:order_id])
+    @order = current_or_guest_user.orders.where(status: 'pending').find(params[:order_id])
     @payment = Payment.new
   end
 
